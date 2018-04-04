@@ -10,8 +10,10 @@
 
 @implementation BaseResponse
 + (instancetype) instanceFromJSONObject:(id)jsonObject
+                      resultObjectClass:(Class)resultObjectClass
 {
     BaseResponse *response = [BaseResponse new];
+    response.resultClass = resultObjectClass;
     if (jsonObject) {
         response = [response fromJSONObject:jsonObject];
     }
@@ -24,7 +26,7 @@
         self.status = [jsonObject objectForKey:@"status"];
         self.etag = [jsonObject objectForKey:@"etag"];
         id data = [jsonObject objectForKey:@"data"];
-        BaseResponseData *baseData = [BaseResponseData new];
+        BaseResponseData *baseData = [[BaseResponseData alloc] initWithResultClass:self.resultClass];
         self.data = [baseData fromJSONObject:data];
     }
     

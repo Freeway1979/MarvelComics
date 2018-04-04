@@ -39,8 +39,7 @@
 
     UINavigationController *masterNavigationController = splitViewController.viewControllers[0];
     MasterViewController *controller = (MasterViewController *)masterNavigationController.topViewController;
-    controller.managedObjectContext = self.persistentContainer.viewContext;
-    
+     
     [self test];
     
     return YES;

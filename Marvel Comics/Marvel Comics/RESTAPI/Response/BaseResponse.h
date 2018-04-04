@@ -15,9 +15,12 @@
 @property (nonatomic,assign) NSInteger code;
 @property (nonatomic,copy) NSString *status;
 @property (nonatomic,copy) NSString *etag;
+
+@property Class resultClass;
 @property (nonatomic,strong) BaseResponseData * data;
 
-+ (instancetype) instanceFromJSONObject:(id)jsonObject;
++ (instancetype) instanceFromJSONObject:(id)jsonObject
+                      resultObjectClass:(Class)resultObjectClass;
 - (instancetype) fromJSONObject:(id)jsonObject;
 
 @end

@@ -17,7 +17,7 @@
 
 @interface MCharacter : NSObject <JSON2Model>
 //id (int, optional): The unique ID of the character resource.,
-@property (nonatomic,assign) NSInteger id;
+@property (nonatomic,assign) NSInteger mid;
 //name (string, optional): The name of the character.,
 @property (nonatomic,copy) NSString *name;
 //description (string, optional): A short bio or description of the character.,
@@ -31,12 +31,12 @@
 //urls (Array[Url], optional): A set of public web site URLs for the resource.,
 @property (nonatomic,strong) NSArray<MURL *> *urls;
 //comics (ComicList, optional): A resource list containing comics which feature this character.,
-@property (nonatomic,strong) NSArray<MComic*> *comics;
+@property (nonatomic,strong) MComic *comics;
 //stories (StoryList, optional): A resource list of stories in which this character appears.,
-@property (nonatomic,strong) NSArray<MStory *> *stories;
+@property (nonatomic,strong) MStory *stories;
 //events (EventList, optional): A resource list of events in which this character appears.,
-@property (nonatomic,strong) NSArray<MEvent *> *events;
+@property (nonatomic,strong) MEvent *events;
 //series (SeriesList, optional): A resource list of series in which this character appears.
-@property (nonatomic,strong) NSArray<MSeries *> *series;
+@property (nonatomic,strong) MSeries *series;
 
 @end

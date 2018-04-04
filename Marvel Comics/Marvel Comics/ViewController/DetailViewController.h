@@ -7,11 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "Marvel_Comics+CoreDataModel.h"
+#import "MCharacter.h"
 
 @interface DetailViewController : UIViewController
 
-@property (strong, nonatomic) Event *detailItem;
+@property (strong, nonatomic) MCharacter *detailItem;
 @property (weak, nonatomic) IBOutlet UILabel *detailDescriptionLabel;
 
 @end

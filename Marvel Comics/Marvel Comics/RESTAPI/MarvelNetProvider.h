@@ -8,9 +8,10 @@
 
 #import <Foundation/Foundation.h>
 #import "NetProvider.h"
+#import "BaseResponse.h"
 
 @interface MarvelNetProvider : NSObject
 +(void)getCharacterList:(NSDictionary *)params
-                success:(void (^)(id responseDic))success
+                success:(void (^)(BaseResponse *response))success
                 failure:(void (^)(NSError *error))failure;
 @end

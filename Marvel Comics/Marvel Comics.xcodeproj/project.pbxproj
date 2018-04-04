@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CB35DA322075274A00440879 /* CharacterVM.m in Sources */ = {isa = PBXBuildFile; fileRef = CB35DA312075274A00440879 /* CharacterVM.m */; };
+		CB35DA36207528B000440879 /* CharacterTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CB35DA34207528B000440879 /* CharacterTableViewCell.m */; };
+		CB35DA37207528B000440879 /* CharacterTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CB35DA35207528B000440879 /* CharacterTableViewCell.xib */; };
 		CB51FC8720734A2F009303B4 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CB51FC8620734A2F009303B4 /* AppDelegate.m */; };
 		CB51FC8A20734A2F009303B4 /* Marvel_Comics.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CB51FC8820734A2F009303B4 /* Marvel_Comics.xcdatamodeld */; };
 		CB51FC8D20734A2F009303B4 /* MasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CB51FC8C20734A2F009303B4 /* MasterViewController.m */; };
@@ -69,6 +72,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		CB35DA302075274A00440879 /* CharacterVM.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CharacterVM.h; sourceTree = "<group>"; };
+		CB35DA312075274A00440879 /* CharacterVM.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CharacterVM.m; sourceTree = "<group>"; };
+		CB35DA33207528B000440879 /* CharacterTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CharacterTableViewCell.h; sourceTree = "<group>"; };
+		CB35DA34207528B000440879 /* CharacterTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CharacterTableViewCell.m; sourceTree = "<group>"; };
+		CB35DA35207528B000440879 /* CharacterTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CharacterTableViewCell.xib; sourceTree = "<group>"; };
 		CB51FC8220734A2F009303B4 /* Marvel Comics.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Marvel Comics.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CB51FC8520734A2F009303B4 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		CB51FC8620734A2F009303B4 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -304,6 +312,9 @@
 		CB51FCC120734CE1009303B4 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				CB35DA33207528B000440879 /* CharacterTableViewCell.h */,
+				CB35DA34207528B000440879 /* CharacterTableViewCell.m */,
+				CB35DA35207528B000440879 /* CharacterTableViewCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -311,6 +322,8 @@
 		CB51FCC220734CE7009303B4 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				CB35DA302075274A00440879 /* CharacterVM.h */,
+				CB35DA312075274A00440879 /* CharacterVM.m */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -541,6 +554,7 @@
 				CB51FC9820734A2F009303B4 /* LaunchScreen.storyboard in Resources */,
 				CB51FC9520734A2F009303B4 /* Assets.xcassets in Resources */,
 				CB51FC9320734A2F009303B4 /* Main.storyboard in Resources */,
+				CB35DA37207528B000440879 /* CharacterTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -566,6 +580,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CB51FCE5207380B8009303B4 /* RESTAPI.m in Sources */,
+				CB35DA36207528B000440879 /* CharacterTableViewCell.m in Sources */,
 				CB51FD2C2074D1BF009303B4 /* MStory.m in Sources */,
 				CB51FCC720734DD8009303B4 /* NetProvider.m in Sources */,
 				CB51FCE120737604009303B4 /* LPJSONResponseSerializer.m in Sources */,
@@ -575,6 +590,7 @@
 				CB51FCD22073531B009303B4 /* LPHTTPRequestSerializer.m in Sources */,
 				CB51FCD520735584009303B4 /* LPJSONRequestSerializer.m in Sources */,
 				CB51FD2F2074D1D1009303B4 /* MComic.m in Sources */,
+				CB35DA322075274A00440879 /* CharacterVM.m in Sources */,
 				CB51FC8A20734A2F009303B4 /* Marvel_Comics.xcdatamodeld in Sources */,
 				CB51FD3E2074D7AA009303B4 /* MComicSummary.m in Sources */,
 				CB51FD0520746506009303B4 /* MThumbnail.m in Sources */,

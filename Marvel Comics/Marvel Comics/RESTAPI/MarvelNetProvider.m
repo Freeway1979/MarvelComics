@@ -9,11 +9,11 @@
 #import "MarvelNetProvider.h"
 #import "RESTAPI.h"
 #import "BaseResponse.h"
-
+#import "MCharacter.h"
 @implementation MarvelNetProvider
 
 +(void)getCharacterList:(NSDictionary *)params
-                success:(void (^)(id responseDic))success
+                success:(void (^)(BaseResponse *response))success
                 failure:(void (^)(NSError *error))failure
 {
     NSString *urlString = RESTAPI.urlOfListChars;
@@ -21,13 +21,15 @@
                               parameters:params
                                   config:nil
                                  success:^(id responseDic) {
+                                     BaseResponse *response = nil;
                                      if (responseDic) {
-                                         BaseResponse *response = [BaseResponse instanceFromJSONObject:responseDic];
+                                         response = [BaseResponse instanceFromJSONObject:responseDic
+                                                                       resultObjectClass:[MCharacter class]];
                                          NSLog(@"%@",response);
                                      }
                                      
                                      if (success) {
-                                         success(responseDic);
+                                         success(response);
                                      }
     } failure:^(NSError *error) {
         if (failure) {

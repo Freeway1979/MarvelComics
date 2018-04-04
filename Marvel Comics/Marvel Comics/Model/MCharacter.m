@@ -7,34 +7,42 @@
 //
 
 #import "MCharacter.h"
-
+#import "JSONUtils.h"
 @implementation MCharacter
 - (instancetype) fromJSONObject:(id)jsonObject
 {
     if (jsonObject) {
-        self.id = [[jsonObject objectForKey:@"id"] integerValue];
+        self.mid = [[jsonObject objectForKey:@"id"] integerValue];
         self.name = [jsonObject objectForKey:@"name"];
-        self.desc = [jsonObject objectForKey:@"desc"];
+        self.desc = [jsonObject objectForKey:@"description"];
         //self.modified = [jsonObject objectForKey:@"modified"];
         self.resourceURI = [jsonObject objectForKey:@"resourceURI"];
         MThumbnail *thumbnail = [MThumbnail new];
         thumbnail = [thumbnail fromJSONObject:[jsonObject objectForKey:@"thumbnail"]];
         self.thumbnail = thumbnail;
         
+        self.comics = [[MComic new]
+                       fromJSONObject:[jsonObject objectForKey:@"comics"]];
+        self.events = [[MEvent new]
+                       fromJSONObject:[jsonObject objectForKey:@"events"]];
+        self.stories = [[MStory new]
+                       fromJSONObject:[jsonObject objectForKey:@"stories"]];
+        self.series = [[MSeries new]
+                       fromJSONObject:[jsonObject objectForKey:@"series"]];
         
-        
+        NSArray *arr = [jsonObject objectForKey:@"urls"];
+        if (arr) {
+            self.urls = [self jsonArray2UrlArray:arr];
+        }
     }
-//    //urls (Array[Url], optional): A set of public web site URLs for the resource.,
-//    @property (nonatomic,strong) NSArray<MURL *> *urls;
-//    //comics (ComicList, optional): A resource list containing comics which feature this character.,
-//    @property (nonatomic,strong) NSArray<MComic*> *comics;
-//    //stories (StoryList, optional): A resource list of stories in which this character appears.,
-//    @property (nonatomic,strong) NSArray<MStory *> *stories;
-//    //events (EventList, optional): A resource list of events in which this character appears.,
-//    @property (nonatomic,strong) NSArray<MEvent *> *events;
-//    //series (SeriesList, optional): A resource list of series in which this character appears.
-//    @property (nonatomic,strong) NSArray<MSeries *> *series;
 
     return self;
 }
+//TODO:Generic type is required!
+- (NSArray *) jsonArray2UrlArray:(NSArray *)jsonArray
+{
+    return [JSONUtils jsonArray2ObjectArray:jsonArray
+                                objectClass:[MURL class]];
+}
+
 @end

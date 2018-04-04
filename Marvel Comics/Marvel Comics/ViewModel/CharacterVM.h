@@ -1,5 +1,5 @@
 //
-//  JSONUtils.h
+//  CharacterVM.h
 //  Marvel Comics
 //
 //  Created by Liu PingAn on 04/04/2018.
@@ -7,8 +7,11 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "MCharacter.h"
+@interface CharacterVM : NSObject
 
-@interface JSONUtils : NSObject
-+ (NSArray *) jsonArray2ObjectArray:(NSArray *)jsonArray
-                        objectClass:(Class)objectClass;
+@property (nonatomic,strong) MCharacter *character;
+
+
+
 @end

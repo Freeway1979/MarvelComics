@@ -17,6 +17,9 @@
 @property (nonatomic,assign) NSInteger count;
 @property (nonatomic,strong) NSArray *results;
 
+@property Class resultClass;
+
+- (instancetype)initWithResultClass:(Class)resultClass;
 
 - (instancetype) fromJSONObject:(id)jsonObject;
 
