@@ -1,0 +1,17 @@
+//
+//  Marvel.pch
+//  Marvel Comics
+//
+//  Created by Liu PingAn on 03/04/2018.
+//  Copyright © 2018 Liu PingAn. All rights reserved.
+//
+
+#ifndef Marvel_pch
+#define Marvel_pch
+
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+
+#import "RESTAPI.h"
+
+#endif /* Marvel_pch */

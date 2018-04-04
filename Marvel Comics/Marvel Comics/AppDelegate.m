@@ -10,13 +10,26 @@
 #import "DetailViewController.h"
 #import "MasterViewController.h"
 
+#import "MarvelNetProvider.h"
+
 @interface AppDelegate () <UISplitViewControllerDelegate>
 
 @end
 
 @implementation AppDelegate
 
-
+- (void)test
+{
+     [MarvelNetProvider getCharacterList:nil
+                                success:^(id responseDic) {
+                                    NSLog(@"%@",responseDic);
+                                } failure:^(NSError *error) {
+                                    NSLog(@"%@",error);
+                                }];
+    
+        
+   
+}
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     UISplitViewController *splitViewController = (UISplitViewController *)self.window.rootViewController;
@@ -27,6 +40,9 @@
     UINavigationController *masterNavigationController = splitViewController.viewControllers[0];
     MasterViewController *controller = (MasterViewController *)masterNavigationController.topViewController;
     controller.managedObjectContext = self.persistentContainer.viewContext;
+    
+    [self test];
+    
     return YES;
 }
 

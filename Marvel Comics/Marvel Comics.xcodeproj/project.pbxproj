@@ -17,6 +17,38 @@
 		CB51FC9B20734A2F009303B4 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CB51FC9A20734A2F009303B4 /* main.m */; };
 		CB51FCA520734A2F009303B4 /* Marvel_ComicsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = CB51FCA420734A2F009303B4 /* Marvel_ComicsTests.m */; };
 		CB51FCB020734A2F009303B4 /* Marvel_ComicsUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = CB51FCAF20734A2F009303B4 /* Marvel_ComicsUITests.m */; };
+		CB51FCC720734DD8009303B4 /* NetProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = CB51FCC620734DD8009303B4 /* NetProvider.m */; };
+		CB51FCCA20734F6E009303B4 /* RequestConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = CB51FCC920734F6E009303B4 /* RequestConfig.m */; };
+		CB51FCCE207352AE009303B4 /* LPHTTPSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = CB51FCCD207352AE009303B4 /* LPHTTPSessionManager.m */; };
+		CB51FCD22073531B009303B4 /* LPHTTPRequestSerializer.m in Sources */ = {isa = PBXBuildFile; fileRef = CB51FCD12073531B009303B4 /* LPHTTPRequestSerializer.m */; };
+		CB51FCD520735584009303B4 /* LPJSONRequestSerializer.m in Sources */ = {isa = PBXBuildFile; fileRef = CB51FCD420735584009303B4 /* LPJSONRequestSerializer.m */; };
+		CB51FCDB207365D3009303B4 /* HTTPMethod.m in Sources */ = {isa = PBXBuildFile; fileRef = CB51FCDA207365D3009303B4 /* HTTPMethod.m */; };
+		CB51FCDE20736B31009303B4 /* LPHTTPResponseSerializer.m in Sources */ = {isa = PBXBuildFile; fileRef = CB51FCDD20736B31009303B4 /* LPHTTPResponseSerializer.m */; };
+		CB51FCE120737604009303B4 /* LPJSONResponseSerializer.m in Sources */ = {isa = PBXBuildFile; fileRef = CB51FCE020737604009303B4 /* LPJSONResponseSerializer.m */; };
+		CB51FCE5207380B8009303B4 /* RESTAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = CB51FCE4207380B8009303B4 /* RESTAPI.m */; };
+		CB51FCE820738C17009303B4 /* LogUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = CB51FCE720738C17009303B4 /* LogUtils.m */; };
+		CB51FCFC20745B31009303B4 /* JSONUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = CB51FCFB20745B31009303B4 /* JSONUtils.m */; };
+		CB51FCFF20745D0E009303B4 /* NSString+JSON.m in Sources */ = {isa = PBXBuildFile; fileRef = CB51FCFE20745D0E009303B4 /* NSString+JSON.m */; };
+		CB51FD0220745EDF009303B4 /* NSObject+JSON.m in Sources */ = {isa = PBXBuildFile; fileRef = CB51FD0120745EDF009303B4 /* NSObject+JSON.m */; };
+		CB51FD0520746506009303B4 /* MThumbnail.m in Sources */ = {isa = PBXBuildFile; fileRef = CB51FD0420746506009303B4 /* MThumbnail.m */; };
+		CB51FD0A2074656D009303B4 /* ImageCacheManager.m in Sources */ = {isa = PBXBuildFile; fileRef = CB51FD092074656D009303B4 /* ImageCacheManager.m */; };
+		CB51FD0D2074664C009303B4 /* AutoPurgeCache.m in Sources */ = {isa = PBXBuildFile; fileRef = CB51FD0C2074664C009303B4 /* AutoPurgeCache.m */; };
+		CB51FD1320746C9D009303B4 /* LPImageCache.m in Sources */ = {isa = PBXBuildFile; fileRef = CB51FD1220746C9D009303B4 /* LPImageCache.m */; };
+		CB51FD1620749151009303B4 /* MarvelNetProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = CB51FD1520749151009303B4 /* MarvelNetProvider.m */; };
+		CB51FD192074A839009303B4 /* NSString+MD5.m in Sources */ = {isa = PBXBuildFile; fileRef = CB51FD182074A839009303B4 /* NSString+MD5.m */; };
+		CB51FD1D2074CA52009303B4 /* BaseResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = CB51FD1C2074CA52009303B4 /* BaseResponse.m */; };
+		CB51FD202074CB02009303B4 /* BaseResponseData.m in Sources */ = {isa = PBXBuildFile; fileRef = CB51FD1F2074CB02009303B4 /* BaseResponseData.m */; };
+		CB51FD232074CFBA009303B4 /* MCharacter.m in Sources */ = {isa = PBXBuildFile; fileRef = CB51FD222074CFBA009303B4 /* MCharacter.m */; };
+		CB51FD262074D0E6009303B4 /* MURL.m in Sources */ = {isa = PBXBuildFile; fileRef = CB51FD252074D0E6009303B4 /* MURL.m */; };
+		CB51FD292074D1B5009303B4 /* MEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = CB51FD282074D1B5009303B4 /* MEvent.m */; };
+		CB51FD2C2074D1BF009303B4 /* MStory.m in Sources */ = {isa = PBXBuildFile; fileRef = CB51FD2B2074D1BF009303B4 /* MStory.m */; };
+		CB51FD2F2074D1D1009303B4 /* MComic.m in Sources */ = {isa = PBXBuildFile; fileRef = CB51FD2E2074D1D0009303B4 /* MComic.m */; };
+		CB51FD322074D225009303B4 /* MSeries.m in Sources */ = {isa = PBXBuildFile; fileRef = CB51FD312074D225009303B4 /* MSeries.m */; };
+		CB51FD382074D655009303B4 /* MSummary.m in Sources */ = {isa = PBXBuildFile; fileRef = CB51FD372074D655009303B4 /* MSummary.m */; };
+		CB51FD3B2074D79C009303B4 /* MStorySummary.m in Sources */ = {isa = PBXBuildFile; fileRef = CB51FD3A2074D79C009303B4 /* MStorySummary.m */; };
+		CB51FD3E2074D7AA009303B4 /* MComicSummary.m in Sources */ = {isa = PBXBuildFile; fileRef = CB51FD3D2074D7AA009303B4 /* MComicSummary.m */; };
+		CB51FD412074D7B7009303B4 /* MEventSummary.m in Sources */ = {isa = PBXBuildFile; fileRef = CB51FD402074D7B7009303B4 /* MEventSummary.m */; };
+		CB51FD442074D7CD009303B4 /* MSeriesSummary.m in Sources */ = {isa = PBXBuildFile; fileRef = CB51FD432074D7CD009303B4 /* MSeriesSummary.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,6 +88,72 @@
 		CB51FCAB20734A2F009303B4 /* Marvel ComicsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Marvel ComicsUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CB51FCAF20734A2F009303B4 /* Marvel_ComicsUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Marvel_ComicsUITests.m; sourceTree = "<group>"; };
 		CB51FCB120734A2F009303B4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CB51FCC520734DD8009303B4 /* NetProvider.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NetProvider.h; sourceTree = "<group>"; };
+		CB51FCC620734DD8009303B4 /* NetProvider.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NetProvider.m; sourceTree = "<group>"; };
+		CB51FCC820734F6E009303B4 /* RequestConfig.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RequestConfig.h; sourceTree = "<group>"; };
+		CB51FCC920734F6E009303B4 /* RequestConfig.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RequestConfig.m; sourceTree = "<group>"; };
+		CB51FCCC207352AE009303B4 /* LPHTTPSessionManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LPHTTPSessionManager.h; sourceTree = "<group>"; };
+		CB51FCCD207352AE009303B4 /* LPHTTPSessionManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LPHTTPSessionManager.m; sourceTree = "<group>"; };
+		CB51FCD02073531B009303B4 /* LPHTTPRequestSerializer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LPHTTPRequestSerializer.h; sourceTree = "<group>"; };
+		CB51FCD12073531B009303B4 /* LPHTTPRequestSerializer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LPHTTPRequestSerializer.m; sourceTree = "<group>"; };
+		CB51FCD320735584009303B4 /* LPJSONRequestSerializer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LPJSONRequestSerializer.h; sourceTree = "<group>"; };
+		CB51FCD420735584009303B4 /* LPJSONRequestSerializer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LPJSONRequestSerializer.m; sourceTree = "<group>"; };
+		CB51FCD9207365D3009303B4 /* HTTPMethod.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HTTPMethod.h; sourceTree = "<group>"; };
+		CB51FCDA207365D3009303B4 /* HTTPMethod.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HTTPMethod.m; sourceTree = "<group>"; };
+		CB51FCDC20736B31009303B4 /* LPHTTPResponseSerializer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LPHTTPResponseSerializer.h; sourceTree = "<group>"; };
+		CB51FCDD20736B31009303B4 /* LPHTTPResponseSerializer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LPHTTPResponseSerializer.m; sourceTree = "<group>"; };
+		CB51FCDF20737604009303B4 /* LPJSONResponseSerializer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LPJSONResponseSerializer.h; sourceTree = "<group>"; };
+		CB51FCE020737604009303B4 /* LPJSONResponseSerializer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LPJSONResponseSerializer.m; sourceTree = "<group>"; };
+		CB51FCE3207380B8009303B4 /* RESTAPI.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RESTAPI.h; sourceTree = "<group>"; };
+		CB51FCE4207380B8009303B4 /* RESTAPI.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RESTAPI.m; sourceTree = "<group>"; };
+		CB51FCE620738C17009303B4 /* LogUtils.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LogUtils.h; sourceTree = "<group>"; };
+		CB51FCE720738C17009303B4 /* LogUtils.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LogUtils.m; sourceTree = "<group>"; };
+		CB51FCEB20738CA1009303B4 /* Marvel.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Marvel.pch; sourceTree = "<group>"; };
+		CB51FCF72074592A009303B4 /* JSON2Model.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JSON2Model.h; sourceTree = "<group>"; };
+		CB51FCFA20745B31009303B4 /* JSONUtils.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JSONUtils.h; sourceTree = "<group>"; };
+		CB51FCFB20745B31009303B4 /* JSONUtils.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JSONUtils.m; sourceTree = "<group>"; };
+		CB51FCFD20745D0E009303B4 /* NSString+JSON.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSString+JSON.h"; sourceTree = "<group>"; };
+		CB51FCFE20745D0E009303B4 /* NSString+JSON.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSString+JSON.m"; sourceTree = "<group>"; };
+		CB51FD0020745EDF009303B4 /* NSObject+JSON.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSObject+JSON.h"; sourceTree = "<group>"; };
+		CB51FD0120745EDF009303B4 /* NSObject+JSON.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSObject+JSON.m"; sourceTree = "<group>"; };
+		CB51FD0320746506009303B4 /* MThumbnail.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MThumbnail.h; sourceTree = "<group>"; };
+		CB51FD0420746506009303B4 /* MThumbnail.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MThumbnail.m; sourceTree = "<group>"; };
+		CB51FD082074656D009303B4 /* ImageCacheManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ImageCacheManager.h; sourceTree = "<group>"; };
+		CB51FD092074656D009303B4 /* ImageCacheManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ImageCacheManager.m; sourceTree = "<group>"; };
+		CB51FD0B2074664C009303B4 /* AutoPurgeCache.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AutoPurgeCache.h; sourceTree = "<group>"; };
+		CB51FD0C2074664C009303B4 /* AutoPurgeCache.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AutoPurgeCache.m; sourceTree = "<group>"; };
+		CB51FD1120746C9D009303B4 /* LPImageCache.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LPImageCache.h; sourceTree = "<group>"; };
+		CB51FD1220746C9D009303B4 /* LPImageCache.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LPImageCache.m; sourceTree = "<group>"; };
+		CB51FD1420749151009303B4 /* MarvelNetProvider.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MarvelNetProvider.h; sourceTree = "<group>"; };
+		CB51FD1520749151009303B4 /* MarvelNetProvider.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MarvelNetProvider.m; sourceTree = "<group>"; };
+		CB51FD172074A839009303B4 /* NSString+MD5.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSString+MD5.h"; sourceTree = "<group>"; };
+		CB51FD182074A839009303B4 /* NSString+MD5.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSString+MD5.m"; sourceTree = "<group>"; };
+		CB51FD1B2074CA52009303B4 /* BaseResponse.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseResponse.h; sourceTree = "<group>"; };
+		CB51FD1C2074CA52009303B4 /* BaseResponse.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BaseResponse.m; sourceTree = "<group>"; };
+		CB51FD1E2074CB02009303B4 /* BaseResponseData.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseResponseData.h; sourceTree = "<group>"; };
+		CB51FD1F2074CB02009303B4 /* BaseResponseData.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BaseResponseData.m; sourceTree = "<group>"; };
+		CB51FD212074CFBA009303B4 /* MCharacter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MCharacter.h; sourceTree = "<group>"; };
+		CB51FD222074CFBA009303B4 /* MCharacter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MCharacter.m; sourceTree = "<group>"; };
+		CB51FD242074D0E6009303B4 /* MURL.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MURL.h; sourceTree = "<group>"; };
+		CB51FD252074D0E6009303B4 /* MURL.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MURL.m; sourceTree = "<group>"; };
+		CB51FD272074D1B5009303B4 /* MEvent.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MEvent.h; sourceTree = "<group>"; };
+		CB51FD282074D1B5009303B4 /* MEvent.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MEvent.m; sourceTree = "<group>"; };
+		CB51FD2A2074D1BF009303B4 /* MStory.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MStory.h; sourceTree = "<group>"; };
+		CB51FD2B2074D1BF009303B4 /* MStory.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MStory.m; sourceTree = "<group>"; };
+		CB51FD2D2074D1D0009303B4 /* MComic.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MComic.h; sourceTree = "<group>"; };
+		CB51FD2E2074D1D0009303B4 /* MComic.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MComic.m; sourceTree = "<group>"; };
+		CB51FD302074D225009303B4 /* MSeries.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MSeries.h; sourceTree = "<group>"; };
+		CB51FD312074D225009303B4 /* MSeries.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MSeries.m; sourceTree = "<group>"; };
+		CB51FD362074D655009303B4 /* MSummary.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MSummary.h; sourceTree = "<group>"; };
+		CB51FD372074D655009303B4 /* MSummary.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MSummary.m; sourceTree = "<group>"; };
+		CB51FD392074D79C009303B4 /* MStorySummary.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MStorySummary.h; sourceTree = "<group>"; };
+		CB51FD3A2074D79C009303B4 /* MStorySummary.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MStorySummary.m; sourceTree = "<group>"; };
+		CB51FD3C2074D7AA009303B4 /* MComicSummary.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MComicSummary.h; sourceTree = "<group>"; };
+		CB51FD3D2074D7AA009303B4 /* MComicSummary.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MComicSummary.m; sourceTree = "<group>"; };
+		CB51FD3F2074D7B7009303B4 /* MEventSummary.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MEventSummary.h; sourceTree = "<group>"; };
+		CB51FD402074D7B7009303B4 /* MEventSummary.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MEventSummary.m; sourceTree = "<group>"; };
+		CB51FD422074D7CD009303B4 /* MSeriesSummary.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MSeriesSummary.h; sourceTree = "<group>"; };
+		CB51FD432074D7CD009303B4 /* MSeriesSummary.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MSeriesSummary.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,12 +204,15 @@
 		CB51FC8420734A2F009303B4 /* Marvel Comics */ = {
 			isa = PBXGroup;
 			children = (
+				CB51FCEA20738C6C009303B4 /* Supporting Files */,
+				CB51FCE2207380A5009303B4 /* RESTAPI */,
+				CB51FCCB207350DF009303B4 /* MyLibrary */,
+				CB51FCC220734CE7009303B4 /* ViewModel */,
+				CB51FCC120734CE1009303B4 /* View */,
+				CB51FCC020734CDB009303B4 /* Model */,
+				CB51FCBD20734CB2009303B4 /* ViewController */,
 				CB51FC8520734A2F009303B4 /* AppDelegate.h */,
 				CB51FC8620734A2F009303B4 /* AppDelegate.m */,
-				CB51FC8B20734A2F009303B4 /* MasterViewController.h */,
-				CB51FC8C20734A2F009303B4 /* MasterViewController.m */,
-				CB51FC8E20734A2F009303B4 /* DetailViewController.h */,
-				CB51FC8F20734A2F009303B4 /* DetailViewController.m */,
 				CB51FC9120734A2F009303B4 /* Main.storyboard */,
 				CB51FC9420734A2F009303B4 /* Assets.xcassets */,
 				CB51FC9620734A2F009303B4 /* LaunchScreen.storyboard */,
@@ -138,6 +239,197 @@
 				CB51FCB120734A2F009303B4 /* Info.plist */,
 			);
 			path = "Marvel ComicsUITests";
+			sourceTree = "<group>";
+		};
+		CB51FCBD20734CB2009303B4 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				CB51FC8B20734A2F009303B4 /* MasterViewController.h */,
+				CB51FC8C20734A2F009303B4 /* MasterViewController.m */,
+				CB51FC8E20734A2F009303B4 /* DetailViewController.h */,
+				CB51FC8F20734A2F009303B4 /* DetailViewController.m */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		CB51FCBE20734CC0009303B4 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				CB51FD172074A839009303B4 /* NSString+MD5.h */,
+				CB51FD182074A839009303B4 /* NSString+MD5.m */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		CB51FCBF20734CCE009303B4 /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				CB51FCE620738C17009303B4 /* LogUtils.h */,
+				CB51FCE720738C17009303B4 /* LogUtils.m */,
+			);
+			path = Utility;
+			sourceTree = "<group>";
+		};
+		CB51FCC020734CDB009303B4 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				CB51FD0320746506009303B4 /* MThumbnail.h */,
+				CB51FD0420746506009303B4 /* MThumbnail.m */,
+				CB51FD212074CFBA009303B4 /* MCharacter.h */,
+				CB51FD222074CFBA009303B4 /* MCharacter.m */,
+				CB51FD242074D0E6009303B4 /* MURL.h */,
+				CB51FD252074D0E6009303B4 /* MURL.m */,
+				CB51FD272074D1B5009303B4 /* MEvent.h */,
+				CB51FD282074D1B5009303B4 /* MEvent.m */,
+				CB51FD2A2074D1BF009303B4 /* MStory.h */,
+				CB51FD2B2074D1BF009303B4 /* MStory.m */,
+				CB51FD2D2074D1D0009303B4 /* MComic.h */,
+				CB51FD2E2074D1D0009303B4 /* MComic.m */,
+				CB51FD302074D225009303B4 /* MSeries.h */,
+				CB51FD312074D225009303B4 /* MSeries.m */,
+				CB51FD362074D655009303B4 /* MSummary.h */,
+				CB51FD372074D655009303B4 /* MSummary.m */,
+				CB51FD392074D79C009303B4 /* MStorySummary.h */,
+				CB51FD3A2074D79C009303B4 /* MStorySummary.m */,
+				CB51FD3C2074D7AA009303B4 /* MComicSummary.h */,
+				CB51FD3D2074D7AA009303B4 /* MComicSummary.m */,
+				CB51FD3F2074D7B7009303B4 /* MEventSummary.h */,
+				CB51FD402074D7B7009303B4 /* MEventSummary.m */,
+				CB51FD422074D7CD009303B4 /* MSeriesSummary.h */,
+				CB51FD432074D7CD009303B4 /* MSeriesSummary.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		CB51FCC120734CE1009303B4 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		CB51FCC220734CE7009303B4 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		CB51FCC320734CF8009303B4 /* DataProvider */ = {
+			isa = PBXGroup;
+			children = (
+				CB51FD062074654E009303B4 /* Cache */,
+				CB51FCC420734DAC009303B4 /* NetProvider */,
+			);
+			path = DataProvider;
+			sourceTree = "<group>";
+		};
+		CB51FCC420734DAC009303B4 /* NetProvider */ = {
+			isa = PBXGroup;
+			children = (
+				CB51FCCF207352F7009303B4 /* Serialization */,
+				CB51FCC520734DD8009303B4 /* NetProvider.h */,
+				CB51FCC620734DD8009303B4 /* NetProvider.m */,
+				CB51FCC820734F6E009303B4 /* RequestConfig.h */,
+				CB51FCC920734F6E009303B4 /* RequestConfig.m */,
+				CB51FCCC207352AE009303B4 /* LPHTTPSessionManager.h */,
+				CB51FCCD207352AE009303B4 /* LPHTTPSessionManager.m */,
+				CB51FCD9207365D3009303B4 /* HTTPMethod.h */,
+				CB51FCDA207365D3009303B4 /* HTTPMethod.m */,
+			);
+			path = NetProvider;
+			sourceTree = "<group>";
+		};
+		CB51FCCB207350DF009303B4 /* MyLibrary */ = {
+			isa = PBXGroup;
+			children = (
+				CB51FCF620745912009303B4 /* JSON2Model */,
+				CB51FCBF20734CCE009303B4 /* Utility */,
+				CB51FCC320734CF8009303B4 /* DataProvider */,
+				CB51FCBE20734CC0009303B4 /* Extension */,
+			);
+			path = MyLibrary;
+			sourceTree = "<group>";
+		};
+		CB51FCCF207352F7009303B4 /* Serialization */ = {
+			isa = PBXGroup;
+			children = (
+				CB51FCD02073531B009303B4 /* LPHTTPRequestSerializer.h */,
+				CB51FCD12073531B009303B4 /* LPHTTPRequestSerializer.m */,
+				CB51FCD320735584009303B4 /* LPJSONRequestSerializer.h */,
+				CB51FCD420735584009303B4 /* LPJSONRequestSerializer.m */,
+				CB51FCDC20736B31009303B4 /* LPHTTPResponseSerializer.h */,
+				CB51FCDD20736B31009303B4 /* LPHTTPResponseSerializer.m */,
+				CB51FCDF20737604009303B4 /* LPJSONResponseSerializer.h */,
+				CB51FCE020737604009303B4 /* LPJSONResponseSerializer.m */,
+			);
+			path = Serialization;
+			sourceTree = "<group>";
+		};
+		CB51FCE2207380A5009303B4 /* RESTAPI */ = {
+			isa = PBXGroup;
+			children = (
+				CB51FD1A2074CA42009303B4 /* Response */,
+				CB51FCE3207380B8009303B4 /* RESTAPI.h */,
+				CB51FCE4207380B8009303B4 /* RESTAPI.m */,
+				CB51FD1420749151009303B4 /* MarvelNetProvider.h */,
+				CB51FD1520749151009303B4 /* MarvelNetProvider.m */,
+			);
+			path = RESTAPI;
+			sourceTree = "<group>";
+		};
+		CB51FCEA20738C6C009303B4 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				CB51FCEB20738CA1009303B4 /* Marvel.pch */,
+			);
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		CB51FCF620745912009303B4 /* JSON2Model */ = {
+			isa = PBXGroup;
+			children = (
+				CB51FCF72074592A009303B4 /* JSON2Model.h */,
+				CB51FCFA20745B31009303B4 /* JSONUtils.h */,
+				CB51FCFB20745B31009303B4 /* JSONUtils.m */,
+				CB51FCFD20745D0E009303B4 /* NSString+JSON.h */,
+				CB51FCFE20745D0E009303B4 /* NSString+JSON.m */,
+				CB51FD0020745EDF009303B4 /* NSObject+JSON.h */,
+				CB51FD0120745EDF009303B4 /* NSObject+JSON.m */,
+			);
+			path = JSON2Model;
+			sourceTree = "<group>";
+		};
+		CB51FD062074654E009303B4 /* Cache */ = {
+			isa = PBXGroup;
+			children = (
+				CB51FD0720746558009303B4 /* ImageCache */,
+				CB51FD0B2074664C009303B4 /* AutoPurgeCache.h */,
+				CB51FD0C2074664C009303B4 /* AutoPurgeCache.m */,
+			);
+			path = Cache;
+			sourceTree = "<group>";
+		};
+		CB51FD0720746558009303B4 /* ImageCache */ = {
+			isa = PBXGroup;
+			children = (
+				CB51FD082074656D009303B4 /* ImageCacheManager.h */,
+				CB51FD092074656D009303B4 /* ImageCacheManager.m */,
+				CB51FD1120746C9D009303B4 /* LPImageCache.h */,
+				CB51FD1220746C9D009303B4 /* LPImageCache.m */,
+			);
+			path = ImageCache;
+			sourceTree = "<group>";
+		};
+		CB51FD1A2074CA42009303B4 /* Response */ = {
+			isa = PBXGroup;
+			children = (
+				CB51FD1B2074CA52009303B4 /* BaseResponse.h */,
+				CB51FD1C2074CA52009303B4 /* BaseResponse.m */,
+				CB51FD1E2074CB02009303B4 /* BaseResponseData.h */,
+				CB51FD1F2074CB02009303B4 /* BaseResponseData.m */,
+			);
+			path = Response;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -273,9 +565,41 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CB51FCE5207380B8009303B4 /* RESTAPI.m in Sources */,
+				CB51FD2C2074D1BF009303B4 /* MStory.m in Sources */,
+				CB51FCC720734DD8009303B4 /* NetProvider.m in Sources */,
+				CB51FCE120737604009303B4 /* LPJSONResponseSerializer.m in Sources */,
+				CB51FD322074D225009303B4 /* MSeries.m in Sources */,
+				CB51FCDE20736B31009303B4 /* LPHTTPResponseSerializer.m in Sources */,
 				CB51FC9B20734A2F009303B4 /* main.m in Sources */,
+				CB51FCD22073531B009303B4 /* LPHTTPRequestSerializer.m in Sources */,
+				CB51FCD520735584009303B4 /* LPJSONRequestSerializer.m in Sources */,
+				CB51FD2F2074D1D1009303B4 /* MComic.m in Sources */,
 				CB51FC8A20734A2F009303B4 /* Marvel_Comics.xcdatamodeld in Sources */,
+				CB51FD3E2074D7AA009303B4 /* MComicSummary.m in Sources */,
+				CB51FD0520746506009303B4 /* MThumbnail.m in Sources */,
+				CB51FD1620749151009303B4 /* MarvelNetProvider.m in Sources */,
+				CB51FCFF20745D0E009303B4 /* NSString+JSON.m in Sources */,
+				CB51FD232074CFBA009303B4 /* MCharacter.m in Sources */,
+				CB51FD1D2074CA52009303B4 /* BaseResponse.m in Sources */,
+				CB51FD0D2074664C009303B4 /* AutoPurgeCache.m in Sources */,
+				CB51FCCA20734F6E009303B4 /* RequestConfig.m in Sources */,
+				CB51FD412074D7B7009303B4 /* MEventSummary.m in Sources */,
+				CB51FCCE207352AE009303B4 /* LPHTTPSessionManager.m in Sources */,
+				CB51FCDB207365D3009303B4 /* HTTPMethod.m in Sources */,
+				CB51FD292074D1B5009303B4 /* MEvent.m in Sources */,
+				CB51FD0220745EDF009303B4 /* NSObject+JSON.m in Sources */,
+				CB51FCE820738C17009303B4 /* LogUtils.m in Sources */,
+				CB51FD262074D0E6009303B4 /* MURL.m in Sources */,
 				CB51FC8D20734A2F009303B4 /* MasterViewController.m in Sources */,
+				CB51FCFC20745B31009303B4 /* JSONUtils.m in Sources */,
+				CB51FD192074A839009303B4 /* NSString+MD5.m in Sources */,
+				CB51FD0A2074656D009303B4 /* ImageCacheManager.m in Sources */,
+				CB51FD382074D655009303B4 /* MSummary.m in Sources */,
+				CB51FD1320746C9D009303B4 /* LPImageCache.m in Sources */,
+				CB51FD442074D7CD009303B4 /* MSeriesSummary.m in Sources */,
+				CB51FD3B2074D79C009303B4 /* MStorySummary.m in Sources */,
+				CB51FD202074CB02009303B4 /* BaseResponseData.m in Sources */,
 				CB51FC8720734A2F009303B4 /* AppDelegate.m in Sources */,
 				CB51FC9020734A2F009303B4 /* DetailViewController.m in Sources */,
 			);
