@@ -7,6 +7,20 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CB34CCEF20759ACA007AB7E6 /* CharacterDataController.m in Sources */ = {isa = PBXBuildFile; fileRef = CB34CCEE20759ACA007AB7E6 /* CharacterDataController.m */; };
+		CB34CCF920759E27007AB7E6 /* AsyncTaskManager.m in Sources */ = {isa = PBXBuildFile; fileRef = CB34CCF820759E27007AB7E6 /* AsyncTaskManager.m */; };
+		CB34CCFD2075BED4007AB7E6 /* LoadingView.m in Sources */ = {isa = PBXBuildFile; fileRef = CB34CCFB2075BED4007AB7E6 /* LoadingView.m */; };
+		CB34CD002075CD20007AB7E6 /* UIImage+Processing.m in Sources */ = {isa = PBXBuildFile; fileRef = CB34CCFF2075CD20007AB7E6 /* UIImage+Processing.m */; };
+		CB34CD032075D514007AB7E6 /* UIUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = CB34CD022075D514007AB7E6 /* UIUtils.m */; };
+		CB34CD092075E669007AB7E6 /* UIActivityIndicatorView+Loading.m in Sources */ = {isa = PBXBuildFile; fileRef = CB34CD082075E669007AB7E6 /* UIActivityIndicatorView+Loading.m */; };
+		CB34CD0D2075EAB5007AB7E6 /* FlipPresentAnimationController.m in Sources */ = {isa = PBXBuildFile; fileRef = CB34CD0C2075EAB5007AB7E6 /* FlipPresentAnimationController.m */; };
+		CB34CD322076263E007AB7E6 /* ImageTitleTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CB34CD302076263E007AB7E6 /* ImageTitleTableViewCell.m */; };
+		CB34CD332076263E007AB7E6 /* ImageTitleTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CB34CD312076263E007AB7E6 /* ImageTitleTableViewCell.xib */; };
+		CB34CD3620762C0B007AB7E6 /* ImageSubtitleVM.m in Sources */ = {isa = PBXBuildFile; fileRef = CB34CD3520762C0B007AB7E6 /* ImageSubtitleVM.m */; };
+		CB34CD3920762E26007AB7E6 /* CharacterDetailDataController.m in Sources */ = {isa = PBXBuildFile; fileRef = CB34CD3820762E26007AB7E6 /* CharacterDetailDataController.m */; };
+		CB34CD3C207634B2007AB7E6 /* GroupImageSubtitleVM.m in Sources */ = {isa = PBXBuildFile; fileRef = CB34CD3B207634B2007AB7E6 /* GroupImageSubtitleVM.m */; };
+		CB34CD40207684F6007AB7E6 /* FavouriteDataProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = CB34CD3F207684F6007AB7E6 /* FavouriteDataProvider.m */; };
+		CB34CD4420768BC3007AB7E6 /* NotificationName.m in Sources */ = {isa = PBXBuildFile; fileRef = CB34CD4320768BC3007AB7E6 /* NotificationName.m */; };
 		CB35DA322075274A00440879 /* CharacterVM.m in Sources */ = {isa = PBXBuildFile; fileRef = CB35DA312075274A00440879 /* CharacterVM.m */; };
 		CB35DA36207528B000440879 /* CharacterTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CB35DA34207528B000440879 /* CharacterTableViewCell.m */; };
 		CB35DA37207528B000440879 /* CharacterTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CB35DA35207528B000440879 /* CharacterTableViewCell.xib */; };
@@ -72,6 +86,34 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		CB34CCED20759ACA007AB7E6 /* CharacterDataController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CharacterDataController.h; sourceTree = "<group>"; };
+		CB34CCEE20759ACA007AB7E6 /* CharacterDataController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CharacterDataController.m; sourceTree = "<group>"; };
+		CB34CCF020759BBC007AB7E6 /* DataControllerProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DataControllerProtocol.h; sourceTree = "<group>"; };
+		CB34CCF720759E27007AB7E6 /* AsyncTaskManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AsyncTaskManager.h; sourceTree = "<group>"; };
+		CB34CCF820759E27007AB7E6 /* AsyncTaskManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AsyncTaskManager.m; sourceTree = "<group>"; };
+		CB34CCFB2075BED4007AB7E6 /* LoadingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoadingView.m; sourceTree = "<group>"; };
+		CB34CCFC2075BED4007AB7E6 /* LoadingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoadingView.h; sourceTree = "<group>"; };
+		CB34CCFE2075CD20007AB7E6 /* UIImage+Processing.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIImage+Processing.h"; sourceTree = "<group>"; };
+		CB34CCFF2075CD20007AB7E6 /* UIImage+Processing.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Processing.m"; sourceTree = "<group>"; };
+		CB34CD012075D514007AB7E6 /* UIUtils.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UIUtils.h; sourceTree = "<group>"; };
+		CB34CD022075D514007AB7E6 /* UIUtils.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UIUtils.m; sourceTree = "<group>"; };
+		CB34CD072075E669007AB7E6 /* UIActivityIndicatorView+Loading.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIActivityIndicatorView+Loading.h"; sourceTree = "<group>"; };
+		CB34CD082075E669007AB7E6 /* UIActivityIndicatorView+Loading.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIActivityIndicatorView+Loading.m"; sourceTree = "<group>"; };
+		CB34CD0B2075EAB5007AB7E6 /* FlipPresentAnimationController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FlipPresentAnimationController.h; sourceTree = "<group>"; };
+		CB34CD0C2075EAB5007AB7E6 /* FlipPresentAnimationController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FlipPresentAnimationController.m; sourceTree = "<group>"; };
+		CB34CD2F2076263E007AB7E6 /* ImageTitleTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ImageTitleTableViewCell.h; sourceTree = "<group>"; };
+		CB34CD302076263E007AB7E6 /* ImageTitleTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ImageTitleTableViewCell.m; sourceTree = "<group>"; };
+		CB34CD312076263E007AB7E6 /* ImageTitleTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ImageTitleTableViewCell.xib; sourceTree = "<group>"; };
+		CB34CD3420762C0B007AB7E6 /* ImageSubtitleVM.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ImageSubtitleVM.h; sourceTree = "<group>"; };
+		CB34CD3520762C0B007AB7E6 /* ImageSubtitleVM.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ImageSubtitleVM.m; sourceTree = "<group>"; };
+		CB34CD3720762E26007AB7E6 /* CharacterDetailDataController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CharacterDetailDataController.h; sourceTree = "<group>"; };
+		CB34CD3820762E26007AB7E6 /* CharacterDetailDataController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CharacterDetailDataController.m; sourceTree = "<group>"; };
+		CB34CD3A207634B2007AB7E6 /* GroupImageSubtitleVM.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GroupImageSubtitleVM.h; sourceTree = "<group>"; };
+		CB34CD3B207634B2007AB7E6 /* GroupImageSubtitleVM.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GroupImageSubtitleVM.m; sourceTree = "<group>"; };
+		CB34CD3E207684F6007AB7E6 /* FavouriteDataProvider.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FavouriteDataProvider.h; sourceTree = "<group>"; };
+		CB34CD3F207684F6007AB7E6 /* FavouriteDataProvider.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FavouriteDataProvider.m; sourceTree = "<group>"; };
+		CB34CD4220768BC3007AB7E6 /* NotificationName.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NotificationName.h; sourceTree = "<group>"; };
+		CB34CD4320768BC3007AB7E6 /* NotificationName.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NotificationName.m; sourceTree = "<group>"; };
 		CB35DA302075274A00440879 /* CharacterVM.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CharacterVM.h; sourceTree = "<group>"; };
 		CB35DA312075274A00440879 /* CharacterVM.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CharacterVM.m; sourceTree = "<group>"; };
 		CB35DA33207528B000440879 /* CharacterTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CharacterTableViewCell.h; sourceTree = "<group>"; };
@@ -189,6 +231,63 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		CB34CCEC20759A7E007AB7E6 /* DataController */ = {
+			isa = PBXGroup;
+			children = (
+				CB34CCED20759ACA007AB7E6 /* CharacterDataController.h */,
+				CB34CCEE20759ACA007AB7E6 /* CharacterDataController.m */,
+				CB34CCF020759BBC007AB7E6 /* DataControllerProtocol.h */,
+				CB34CD3720762E26007AB7E6 /* CharacterDetailDataController.h */,
+				CB34CD3820762E26007AB7E6 /* CharacterDetailDataController.m */,
+			);
+			path = DataController;
+			sourceTree = "<group>";
+		};
+		CB34CCF320759DD2007AB7E6 /* AsyncTask */ = {
+			isa = PBXGroup;
+			children = (
+				CB34CCF720759E27007AB7E6 /* AsyncTaskManager.h */,
+				CB34CCF820759E27007AB7E6 /* AsyncTaskManager.m */,
+			);
+			path = AsyncTask;
+			sourceTree = "<group>";
+		};
+		CB34CCFA2075BEB7007AB7E6 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				CB34CCFC2075BED4007AB7E6 /* LoadingView.h */,
+				CB34CCFB2075BED4007AB7E6 /* LoadingView.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		CB34CD0A2075EA96007AB7E6 /* Animation */ = {
+			isa = PBXGroup;
+			children = (
+				CB34CD0B2075EAB5007AB7E6 /* FlipPresentAnimationController.h */,
+				CB34CD0C2075EAB5007AB7E6 /* FlipPresentAnimationController.m */,
+			);
+			path = Animation;
+			sourceTree = "<group>";
+		};
+		CB34CD3D207684DE007AB7E6 /* DataProvider */ = {
+			isa = PBXGroup;
+			children = (
+				CB34CD3E207684F6007AB7E6 /* FavouriteDataProvider.h */,
+				CB34CD3F207684F6007AB7E6 /* FavouriteDataProvider.m */,
+			);
+			path = DataProvider;
+			sourceTree = "<group>";
+		};
+		CB34CD4120768BB2007AB7E6 /* Constant */ = {
+			isa = PBXGroup;
+			children = (
+				CB34CD4220768BC3007AB7E6 /* NotificationName.h */,
+				CB34CD4320768BC3007AB7E6 /* NotificationName.m */,
+			);
+			path = Constant;
+			sourceTree = "<group>";
+		};
 		CB51FC7920734A2F009303B4 = {
 			isa = PBXGroup;
 			children = (
@@ -212,6 +311,9 @@
 		CB51FC8420734A2F009303B4 /* Marvel Comics */ = {
 			isa = PBXGroup;
 			children = (
+				CB34CD4120768BB2007AB7E6 /* Constant */,
+				CB34CD3D207684DE007AB7E6 /* DataProvider */,
+				CB34CCEC20759A7E007AB7E6 /* DataController */,
 				CB51FCEA20738C6C009303B4 /* Supporting Files */,
 				CB51FCE2207380A5009303B4 /* RESTAPI */,
 				CB51FCCB207350DF009303B4 /* MyLibrary */,
@@ -265,6 +367,10 @@
 			children = (
 				CB51FD172074A839009303B4 /* NSString+MD5.h */,
 				CB51FD182074A839009303B4 /* NSString+MD5.m */,
+				CB34CCFE2075CD20007AB7E6 /* UIImage+Processing.h */,
+				CB34CCFF2075CD20007AB7E6 /* UIImage+Processing.m */,
+				CB34CD072075E669007AB7E6 /* UIActivityIndicatorView+Loading.h */,
+				CB34CD082075E669007AB7E6 /* UIActivityIndicatorView+Loading.m */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -274,6 +380,8 @@
 			children = (
 				CB51FCE620738C17009303B4 /* LogUtils.h */,
 				CB51FCE720738C17009303B4 /* LogUtils.m */,
+				CB34CD012075D514007AB7E6 /* UIUtils.h */,
+				CB34CD022075D514007AB7E6 /* UIUtils.m */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -315,6 +423,9 @@
 				CB35DA33207528B000440879 /* CharacterTableViewCell.h */,
 				CB35DA34207528B000440879 /* CharacterTableViewCell.m */,
 				CB35DA35207528B000440879 /* CharacterTableViewCell.xib */,
+				CB34CD2F2076263E007AB7E6 /* ImageTitleTableViewCell.h */,
+				CB34CD302076263E007AB7E6 /* ImageTitleTableViewCell.m */,
+				CB34CD312076263E007AB7E6 /* ImageTitleTableViewCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -324,6 +435,10 @@
 			children = (
 				CB35DA302075274A00440879 /* CharacterVM.h */,
 				CB35DA312075274A00440879 /* CharacterVM.m */,
+				CB34CD3420762C0B007AB7E6 /* ImageSubtitleVM.h */,
+				CB34CD3520762C0B007AB7E6 /* ImageSubtitleVM.m */,
+				CB34CD3A207634B2007AB7E6 /* GroupImageSubtitleVM.h */,
+				CB34CD3B207634B2007AB7E6 /* GroupImageSubtitleVM.m */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -356,6 +471,9 @@
 		CB51FCCB207350DF009303B4 /* MyLibrary */ = {
 			isa = PBXGroup;
 			children = (
+				CB34CD0A2075EA96007AB7E6 /* Animation */,
+				CB34CCFA2075BEB7007AB7E6 /* View */,
+				CB34CCF320759DD2007AB7E6 /* AsyncTask */,
 				CB51FCF620745912009303B4 /* JSON2Model */,
 				CB51FCBF20734CCE009303B4 /* Utility */,
 				CB51FCC320734CF8009303B4 /* DataProvider */,
@@ -553,6 +671,7 @@
 			files = (
 				CB51FC9820734A2F009303B4 /* LaunchScreen.storyboard in Resources */,
 				CB51FC9520734A2F009303B4 /* Assets.xcassets in Resources */,
+				CB34CD332076263E007AB7E6 /* ImageTitleTableViewCell.xib in Resources */,
 				CB51FC9320734A2F009303B4 /* Main.storyboard in Resources */,
 				CB35DA37207528B000440879 /* CharacterTableViewCell.xib in Resources */,
 			);
@@ -579,8 +698,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CB34CD322076263E007AB7E6 /* ImageTitleTableViewCell.m in Sources */,
 				CB51FCE5207380B8009303B4 /* RESTAPI.m in Sources */,
 				CB35DA36207528B000440879 /* CharacterTableViewCell.m in Sources */,
+				CB34CD40207684F6007AB7E6 /* FavouriteDataProvider.m in Sources */,
 				CB51FD2C2074D1BF009303B4 /* MStory.m in Sources */,
 				CB51FCC720734DD8009303B4 /* NetProvider.m in Sources */,
 				CB51FCE120737604009303B4 /* LPJSONResponseSerializer.m in Sources */,
@@ -588,16 +709,20 @@
 				CB51FCDE20736B31009303B4 /* LPHTTPResponseSerializer.m in Sources */,
 				CB51FC9B20734A2F009303B4 /* main.m in Sources */,
 				CB51FCD22073531B009303B4 /* LPHTTPRequestSerializer.m in Sources */,
+				CB34CD3C207634B2007AB7E6 /* GroupImageSubtitleVM.m in Sources */,
 				CB51FCD520735584009303B4 /* LPJSONRequestSerializer.m in Sources */,
 				CB51FD2F2074D1D1009303B4 /* MComic.m in Sources */,
 				CB35DA322075274A00440879 /* CharacterVM.m in Sources */,
 				CB51FC8A20734A2F009303B4 /* Marvel_Comics.xcdatamodeld in Sources */,
+				CB34CD3920762E26007AB7E6 /* CharacterDetailDataController.m in Sources */,
 				CB51FD3E2074D7AA009303B4 /* MComicSummary.m in Sources */,
 				CB51FD0520746506009303B4 /* MThumbnail.m in Sources */,
 				CB51FD1620749151009303B4 /* MarvelNetProvider.m in Sources */,
 				CB51FCFF20745D0E009303B4 /* NSString+JSON.m in Sources */,
 				CB51FD232074CFBA009303B4 /* MCharacter.m in Sources */,
 				CB51FD1D2074CA52009303B4 /* BaseResponse.m in Sources */,
+				CB34CD032075D514007AB7E6 /* UIUtils.m in Sources */,
+				CB34CCF920759E27007AB7E6 /* AsyncTaskManager.m in Sources */,
 				CB51FD0D2074664C009303B4 /* AutoPurgeCache.m in Sources */,
 				CB51FCCA20734F6E009303B4 /* RequestConfig.m in Sources */,
 				CB51FD412074D7B7009303B4 /* MEventSummary.m in Sources */,
@@ -606,18 +731,25 @@
 				CB51FD292074D1B5009303B4 /* MEvent.m in Sources */,
 				CB51FD0220745EDF009303B4 /* NSObject+JSON.m in Sources */,
 				CB51FCE820738C17009303B4 /* LogUtils.m in Sources */,
+				CB34CD4420768BC3007AB7E6 /* NotificationName.m in Sources */,
+				CB34CD3620762C0B007AB7E6 /* ImageSubtitleVM.m in Sources */,
 				CB51FD262074D0E6009303B4 /* MURL.m in Sources */,
 				CB51FC8D20734A2F009303B4 /* MasterViewController.m in Sources */,
 				CB51FCFC20745B31009303B4 /* JSONUtils.m in Sources */,
+				CB34CD092075E669007AB7E6 /* UIActivityIndicatorView+Loading.m in Sources */,
 				CB51FD192074A839009303B4 /* NSString+MD5.m in Sources */,
 				CB51FD0A2074656D009303B4 /* ImageCacheManager.m in Sources */,
 				CB51FD382074D655009303B4 /* MSummary.m in Sources */,
 				CB51FD1320746C9D009303B4 /* LPImageCache.m in Sources */,
+				CB34CD002075CD20007AB7E6 /* UIImage+Processing.m in Sources */,
 				CB51FD442074D7CD009303B4 /* MSeriesSummary.m in Sources */,
 				CB51FD3B2074D79C009303B4 /* MStorySummary.m in Sources */,
+				CB34CD0D2075EAB5007AB7E6 /* FlipPresentAnimationController.m in Sources */,
+				CB34CCFD2075BED4007AB7E6 /* LoadingView.m in Sources */,
 				CB51FD202074CB02009303B4 /* BaseResponseData.m in Sources */,
 				CB51FC8720734A2F009303B4 /* AppDelegate.m in Sources */,
 				CB51FC9020734A2F009303B4 /* DetailViewController.m in Sources */,
+				CB34CCEF20759ACA007AB7E6 /* CharacterDataController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -782,6 +914,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2A2G9N54ZA;
+				GCC_PREFIX_HEADER = "Marvel Comics/Supporting Files/Marvel.pch";
 				INFOPLIST_FILE = "Marvel Comics/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "cn.com.chaser.Marvel-Comics";
@@ -796,6 +929,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2A2G9N54ZA;
+				GCC_PREFIX_HEADER = "Marvel Comics/Supporting Files/Marvel.pch";
 				INFOPLIST_FILE = "Marvel Comics/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "cn.com.chaser.Marvel-Comics";

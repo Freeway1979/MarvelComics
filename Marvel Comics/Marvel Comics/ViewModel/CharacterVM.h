@@ -8,10 +8,19 @@
 
 #import <Foundation/Foundation.h>
 #import "MCharacter.h"
-@interface CharacterVM : NSObject
+#import "CharacterTableViewCell.h"
+@interface CharacterVM : NSObject <CharacterTableViewCellDelegate>
 
 @property (nonatomic,strong) MCharacter *character;
 
+@property (nonatomic,assign) BOOL favouriteEnabled;
 
+@property (nonatomic,assign) BOOL favourited;
+
+@property (nonatomic,weak) CharacterTableViewCell *cell;
+
+- (instancetype) initWithCharacter:(MCharacter *)character;
+
+- (void)configureCell:(CharacterTableViewCell *)cell;
 
 @end

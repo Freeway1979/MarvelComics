@@ -11,7 +11,21 @@
 
 // Include any system framework and library headers here that should be included in all compilation units.
 // You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+#import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 
+#define kScreenScale [UIScreen mainScreen].scale
+#define kFontAuto(size) [UIFont systemFontOfSize:(size * kScreenScale / 2.0)]
+
+#define screenWidth ([[UIScreen mainScreen] bounds].size.width)
+#define screenHeight ([[UIScreen mainScreen] bounds].size.height)
+
+#define WS(weakSelf)  __weak __typeof(&*self)weakSelf = self;
+
+#import "UIUtils.h"
 #import "RESTAPI.h"
+#import "BaseResponseData.h"
+#import "AsyncTaskManager.h"
+#import "LoadingView.h"
 
 #endif /* Marvel_pch */

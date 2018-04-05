@@ -1,14 +1,14 @@
 //
-//  CharacterTableViewCell.m
+//  ImageTitleTableViewCell.m
 //  Marvel Comics
 //
-//  Created by Liu PingAn on 04/04/2018.
+//  Created by Liu PingAn on 05/04/2018.
 //  Copyright © 2018 Liu PingAn. All rights reserved.
 //
 
-#import "CharacterTableViewCell.h"
+#import "ImageTitleTableViewCell.h"
 
-@implementation CharacterTableViewCell
+@implementation ImageTitleTableViewCell
 
 - (void)awakeFromNib {
     [super awakeFromNib];
@@ -21,10 +21,4 @@
     // Configure the view for the selected state
 }
 
-- (IBAction)onFavouriteButtonClicked:(UIButton *)sender
-{
-    if (self.delegate) {
-        [self.delegate onFavouriteButtonClicked:sender];
-    }
-}
 @end

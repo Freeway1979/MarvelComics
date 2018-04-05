@@ -8,11 +8,14 @@
 
 #import <UIKit/UIKit.h>
 #import "MCharacter.h"
+#import "CharacterVM.h"
 
-@interface DetailViewController : UIViewController
+@interface DetailViewController : UIViewController<UITableViewDelegate,UITableViewDataSource>
 
-@property (strong, nonatomic) MCharacter *detailItem;
-@property (weak, nonatomic) IBOutlet UILabel *detailDescriptionLabel;
+@property (strong, nonatomic) CharacterVM *character;
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
+
+- (void)setDetailItem:(CharacterVM *)newDetailItem ;
 
 @end
 

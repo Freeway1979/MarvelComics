@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "MCharacter.h"
+#import "CharacterVM.h"
 
 @class DetailViewController;
 
@@ -15,7 +16,7 @@
 
 @property (strong, nonatomic) DetailViewController *detailViewController;
 
-@property (strong, nonatomic) NSArray<MCharacter *> *characterList;
+@property (strong, nonatomic) NSArray<CharacterVM *> *characterList;
 
 @end
 

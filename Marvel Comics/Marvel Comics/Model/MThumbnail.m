@@ -9,6 +9,22 @@
 #import "MThumbnail.h"
 
 @implementation MThumbnail
+- (NSString *) fullUrl
+{
+    return [NSString stringWithFormat:@"%@.%@",self.path,self.extension];
+}
+- (NSString *) fullThumbnailUrl
+{
+    NSString *standard = @"medium";
+    if ([UIUtils is3XDevice]) {
+        standard = @"xlarge";
+    }
+    else if ([UIUtils is2XDevice])
+    {
+        standard = @"large";
+    }
+    return [NSString stringWithFormat:@"%@/standard_%@.%@",self.path,standard,self.extension];
+}
 
 - (instancetype) fromJSONObject:(id)jsonObject
 {
