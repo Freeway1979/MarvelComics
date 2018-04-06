@@ -11,6 +11,24 @@
 
 #import "AutoPurgeCache.h"
 
+typedef NS_ENUM(NSInteger, LPImageCacheType) {
+    /**
+     * NOT TO BE CACHED
+     */
+    LPImageCacheTypeNone,
+    /**
+     * DISK CACHE
+     */
+    LPImageCacheTypeDisk,
+    /**
+     * Memory CACHE
+     */
+    LPImageCacheTypeMemory
+};
+
+typedef void(^LPImageQueryCompletedBlock)(UIImage *image, LPImageCacheType cacheType);
+
+typedef void(^LPImageCheckCacheCompletionBlock)(BOOL isInCache);
 
 #define IMAGE_CACHE_SIZE (50*1024*1024)
 
@@ -36,6 +54,8 @@
 
 - (NSString *)cachedFileNameForKey:(NSString *)key;
 
+- (NSOperation *)queryDiskCacheForKey:(NSString *)key
+                       completedBlock:(LPImageQueryCompletedBlock)completedBlock;
 
 - (void)storeImage:(UIImage *)image
          imageData:(NSData *)imageData

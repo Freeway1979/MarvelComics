@@ -87,13 +87,7 @@
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url
                                                            cachePolicy:cfg.policy
                                                        timeoutInterval:cfg.timeout];
-    
-//    NSString *agent = @"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.181 Safari/537.36";
-//
-//    [request setValue:agent forHTTPHeaderField:@"User-Agent"];
-//    [request setValue:@"text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8" forHTTPHeaderField:@"Accept"];
-//    [request setValue:@"1" forHTTPHeaderField:@"Upgrade-Insecure-Requests"];
-    
+
     __block NSURLSessionDataTask *dataTask = nil;
     dataTask = [session dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
         if (error) {

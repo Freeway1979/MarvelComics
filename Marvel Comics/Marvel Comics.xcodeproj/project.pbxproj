@@ -67,6 +67,9 @@
 		CB51FD412074D7B7009303B4 /* MEventSummary.m in Sources */ = {isa = PBXBuildFile; fileRef = CB51FD402074D7B7009303B4 /* MEventSummary.m */; };
 		CB51FD442074D7CD009303B4 /* MSeriesSummary.m in Sources */ = {isa = PBXBuildFile; fileRef = CB51FD432074D7CD009303B4 /* MSeriesSummary.m */; };
 		CBBC3B46207700890023C855 /* GlobalConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = CBBC3B45207700890023C855 /* GlobalConfig.m */; };
+		CBBC3B49207706FA0023C855 /* UIIMageView+LPImageCache.m in Sources */ = {isa = PBXBuildFile; fileRef = CBBC3B48207706FA0023C855 /* UIIMageView+LPImageCache.m */; };
+		CBBC3B52207728CF0023C855 /* LPImageDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = CBBC3B51207728CF0023C855 /* LPImageDownloader.m */; };
+		CBBC3B55207730580023C855 /* LPImageDownloadOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = CBBC3B54207730580023C855 /* LPImageDownloadOperation.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -207,6 +210,13 @@
 		CB51FD432074D7CD009303B4 /* MSeriesSummary.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MSeriesSummary.m; sourceTree = "<group>"; };
 		CBBC3B44207700890023C855 /* GlobalConfig.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GlobalConfig.h; sourceTree = "<group>"; };
 		CBBC3B45207700890023C855 /* GlobalConfig.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GlobalConfig.m; sourceTree = "<group>"; };
+		CBBC3B47207706FA0023C855 /* UIIMageView+LPImageCache.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIIMageView+LPImageCache.h"; sourceTree = "<group>"; };
+		CBBC3B48207706FA0023C855 /* UIIMageView+LPImageCache.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIIMageView+LPImageCache.m"; sourceTree = "<group>"; };
+		CBBC3B4A2077271B0023C855 /* LPWebImageOperation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LPWebImageOperation.h; sourceTree = "<group>"; };
+		CBBC3B50207728CF0023C855 /* LPImageDownloader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LPImageDownloader.h; sourceTree = "<group>"; };
+		CBBC3B51207728CF0023C855 /* LPImageDownloader.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LPImageDownloader.m; sourceTree = "<group>"; };
+		CBBC3B53207730580023C855 /* LPImageDownloadOperation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LPImageDownloadOperation.h; sourceTree = "<group>"; };
+		CBBC3B54207730580023C855 /* LPImageDownloadOperation.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LPImageDownloadOperation.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -552,6 +562,13 @@
 				CB51FD092074656D009303B4 /* ImageCacheManager.m */,
 				CB51FD1120746C9D009303B4 /* LPImageCache.h */,
 				CB51FD1220746C9D009303B4 /* LPImageCache.m */,
+				CBBC3B47207706FA0023C855 /* UIIMageView+LPImageCache.h */,
+				CBBC3B48207706FA0023C855 /* UIIMageView+LPImageCache.m */,
+				CBBC3B4A2077271B0023C855 /* LPWebImageOperation.h */,
+				CBBC3B50207728CF0023C855 /* LPImageDownloader.h */,
+				CBBC3B51207728CF0023C855 /* LPImageDownloader.m */,
+				CBBC3B53207730580023C855 /* LPImageDownloadOperation.h */,
+				CBBC3B54207730580023C855 /* LPImageDownloadOperation.m */,
 			);
 			path = ImageCache;
 			sourceTree = "<group>";
@@ -750,10 +767,13 @@
 				CB51FD262074D0E6009303B4 /* MURL.m in Sources */,
 				CB51FC8D20734A2F009303B4 /* MasterViewController.m in Sources */,
 				CB51FCFC20745B31009303B4 /* JSONUtils.m in Sources */,
+				CBBC3B49207706FA0023C855 /* UIIMageView+LPImageCache.m in Sources */,
 				CB34CD092075E669007AB7E6 /* UIActivityIndicatorView+Loading.m in Sources */,
 				CB51FD192074A839009303B4 /* NSString+MD5.m in Sources */,
+				CBBC3B52207728CF0023C855 /* LPImageDownloader.m in Sources */,
 				CB51FD0A2074656D009303B4 /* ImageCacheManager.m in Sources */,
 				CB51FD382074D655009303B4 /* MSummary.m in Sources */,
+				CBBC3B55207730580023C855 /* LPImageDownloadOperation.m in Sources */,
 				CB51FD1320746C9D009303B4 /* LPImageCache.m in Sources */,
 				CB34CD002075CD20007AB7E6 /* UIImage+Processing.m in Sources */,
 				CB51FD442074D7CD009303B4 /* MSeriesSummary.m in Sources */,

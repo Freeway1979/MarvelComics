@@ -10,6 +10,8 @@
 #import <UIKit/UIKit.h>
 #import "UIImage+Processing.h"
 #import "FavouriteDataProvider.h"
+#import "UIIMageView+LPImageCache.h"
+
 
 #import "NotificationName.h"
 
@@ -40,26 +42,33 @@
     //FIXME:SHOULD BE ON WORKER THREAD
     NSString *fullUrl = model.thumbnail.fullThumbnailUrl;
     if (fullUrl) {
-        cell.mImageView.image = [UIImage imageNamed:@"DefaultHeadIcon"];
+        cell.mImageView.image = [UIImage imageNamed:@"DefaultHeaderIcon"];
     }
     else {
         return;
     }
-    __weak CharacterTableViewCell *weakCell = cell;
-    CGRect imageSize = weakCell.mImageView.frame;
-    [AsyncTaskManager executeAsyncTask:^{
-        //Retry when failed?
-        NSData *data = [NSData dataWithContentsOfURL:[NSURL URLWithString:fullUrl]];
-        UIImage *image = [UIImage imageWithData:data];
-        UIImage *subImage = [UIImage getSubImage:image
-                                         mCGRect:imageSize
-                                      centerBool:NO];
-        if (subImage) {
-            [AsyncTaskManager executeAsyncTaskOnMainThread:^{
-                [weakCell.mImageView setImage:subImage];
-            }];
-        }
-    }];
+    
+    //TEST
+    UIImageView *imageView = cell.mImageView;
+    [imageView setImageWithURL:[NSURL URLWithString:fullUrl]
+              placeholderImage:[UIImage imageNamed:@"DefaultHeaderIcon"]
+                       options:0];
+    
+//    __weak CharacterTableViewCell *weakCell = cell;
+//    CGRect imageSize = weakCell.mImageView.frame;
+//    [AsyncTaskManager executeAsyncTask:^{
+//        //Retry when failed?
+//        NSData *data = [NSData dataWithContentsOfURL:[NSURL URLWithString:fullUrl]];
+//        UIImage *image = [UIImage imageWithData:data];
+//        UIImage *subImage = [UIImage getSubImage:image
+//                                         mCGRect:imageSize
+//                                      centerBool:NO];
+//        if (subImage) {
+//            [AsyncTaskManager executeAsyncTaskOnMainThread:^{
+//                [weakCell.mImageView setImage:subImage];
+//            }];
+//        }
+//    }];
 }
 
 - (void) setFavourited:(BOOL)favourited

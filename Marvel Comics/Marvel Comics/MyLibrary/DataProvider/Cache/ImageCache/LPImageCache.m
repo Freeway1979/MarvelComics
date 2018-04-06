@@ -265,6 +265,48 @@
     
     return exists;
 }
+
+- (NSOperation *)queryDiskCacheForKey:(NSString *)key
+                       completedBlock:(LPImageQueryCompletedBlock)completedBlock
+{
+    if (!completedBlock) {
+        return nil;
+    }
+    
+    if (!key) {
+        completedBlock(nil, LPImageCacheTypeNone);
+        return nil;
+    }
+    
+    // First check the in-memory cache
+    UIImage *image = [self imageFromMemoryCacheForKey:key];
+    if (image) {
+        completedBlock(image, LPImageCacheTypeMemory);
+        return nil;
+    }
+    
+    NSOperation *operation = [NSOperation new];
+    dispatch_async(self.ioQueue, ^{
+        if (operation.isCancelled) {
+            return;
+        }
+        
+        @autoreleasepool {
+            //Check Disk
+            UIImage *diskImage = [self diskImageForKey:key];
+            if (diskImage && self.shouldCacheImagesInMemory) {
+                NSUInteger cost = [diskImage cacheCost];
+                [self.memoryCache setObject:diskImage forKey:key cost:cost];
+            }
+            [AsyncTaskManager executeAsyncTaskOnMainThread:^{
+                completedBlock(diskImage,LPImageCacheTypeDisk);
+            }];
+        }
+    });
+    
+    return operation;
+}
+
 - (UIImage *)imageFromMemoryCacheForKey:(NSString *)key {
     return [self.memoryCache objectForKey:key];
 }
