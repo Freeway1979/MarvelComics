@@ -48,7 +48,7 @@
         return;
     }
     
-    //TEST
+    //
     UIImageView *imageView = cell.mImageView;
     [imageView setImageWithURL:[NSURL URLWithString:fullUrl]
               placeholderImage:[UIImage imageNamed:@"DefaultHeaderIcon"]

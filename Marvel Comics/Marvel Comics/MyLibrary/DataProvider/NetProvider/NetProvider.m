@@ -8,6 +8,7 @@
 
 #import "NetProvider.h"
 #import "LPHTTPSessionManager.h"
+#import "NSString+URLEncode.h"
 
 @implementation NetProvider
 
@@ -17,8 +18,21 @@
                        success:(void (^)(id responseDic))success
                        failure:(void (^)(NSError *error))failure
 {
+    NSMutableString *finalUrlString = [NSMutableString stringWithString:URLString];
+    if (params.count>0) {
+        NSMutableString *queryString = [NSMutableString string];
+        [params enumerateKeysAndObjectsUsingBlock:^(NSString *  _Nonnull key, NSString *  _Nonnull obj, BOOL * _Nonnull stop) {
+            [queryString appendFormat:@"&%@=%@",key,obj];
+        }];
+        [finalUrlString appendString:[queryString urlEncodedString]];
+    }
+    NSString *finalUrl = finalUrlString;
+    NSLog(@"finalUrl %@",finalUrl);
     LPHTTPSessionManager *sessionManager = [LPHTTPSessionManager sharedJSONManager];
-    [sessionManager GET:URLString parameters:params config:config success:^(NSURLSessionDataTask * _Nonnull dataTask, id _Nullable response) {
+    [sessionManager GET:finalUrl
+             parameters:nil
+                 config:config
+                success:^(NSURLSessionDataTask * _Nonnull dataTask, id _Nullable response) {
         if (success) {
             success(response);
         }

@@ -12,11 +12,20 @@
 
 @class DetailViewController;
 
-@interface MasterViewController : UITableViewController
+@interface MasterViewController : UITableViewController<UISearchBarDelegate>
+
+@property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
 
 @property (strong, nonatomic) DetailViewController *detailViewController;
 
 @property (strong, nonatomic) NSArray<CharacterVM *> *characterList;
+
+#pragma mark - search
+@property (nonatomic,assign) NSUInteger offset;
+@property (nonatomic,copy) NSString *searchWord;
+
+
+- (void) buildDataSource;
 
 @end
 

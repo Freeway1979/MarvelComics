@@ -70,6 +70,9 @@
 		CBBC3B49207706FA0023C855 /* UIIMageView+LPImageCache.m in Sources */ = {isa = PBXBuildFile; fileRef = CBBC3B48207706FA0023C855 /* UIIMageView+LPImageCache.m */; };
 		CBBC3B52207728CF0023C855 /* LPImageDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = CBBC3B51207728CF0023C855 /* LPImageDownloader.m */; };
 		CBBC3B55207730580023C855 /* LPImageDownloadOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = CBBC3B54207730580023C855 /* LPImageDownloadOperation.m */; };
+		CBBC3B58207764300023C855 /* MasterViewController+Search.m in Sources */ = {isa = PBXBuildFile; fileRef = CBBC3B57207764300023C855 /* MasterViewController+Search.m */; };
+		CBF22C1A2077963800DF1EF6 /* NSString+Format.m in Sources */ = {isa = PBXBuildFile; fileRef = CBF22C192077963800DF1EF6 /* NSString+Format.m */; };
+		CBF22C1D20779E7A00DF1EF6 /* NSString+URLEncode.m in Sources */ = {isa = PBXBuildFile; fileRef = CBF22C1C20779E7A00DF1EF6 /* NSString+URLEncode.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -217,6 +220,12 @@
 		CBBC3B51207728CF0023C855 /* LPImageDownloader.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LPImageDownloader.m; sourceTree = "<group>"; };
 		CBBC3B53207730580023C855 /* LPImageDownloadOperation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LPImageDownloadOperation.h; sourceTree = "<group>"; };
 		CBBC3B54207730580023C855 /* LPImageDownloadOperation.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LPImageDownloadOperation.m; sourceTree = "<group>"; };
+		CBBC3B56207764300023C855 /* MasterViewController+Search.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MasterViewController+Search.h"; sourceTree = "<group>"; };
+		CBBC3B57207764300023C855 /* MasterViewController+Search.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "MasterViewController+Search.m"; sourceTree = "<group>"; };
+		CBF22C182077963800DF1EF6 /* NSString+Format.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSString+Format.h"; sourceTree = "<group>"; };
+		CBF22C192077963800DF1EF6 /* NSString+Format.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSString+Format.m"; sourceTree = "<group>"; };
+		CBF22C1B20779E7A00DF1EF6 /* NSString+URLEncode.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSString+URLEncode.h"; sourceTree = "<group>"; };
+		CBF22C1C20779E7A00DF1EF6 /* NSString+URLEncode.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSString+URLEncode.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -372,6 +381,8 @@
 				CB51FC8C20734A2F009303B4 /* MasterViewController.m */,
 				CB51FC8E20734A2F009303B4 /* DetailViewController.h */,
 				CB51FC8F20734A2F009303B4 /* DetailViewController.m */,
+				CBBC3B56207764300023C855 /* MasterViewController+Search.h */,
+				CBBC3B57207764300023C855 /* MasterViewController+Search.m */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -385,6 +396,10 @@
 				CB34CCFF2075CD20007AB7E6 /* UIImage+Processing.m */,
 				CB34CD072075E669007AB7E6 /* UIActivityIndicatorView+Loading.h */,
 				CB34CD082075E669007AB7E6 /* UIActivityIndicatorView+Loading.m */,
+				CBF22C182077963800DF1EF6 /* NSString+Format.h */,
+				CBF22C192077963800DF1EF6 /* NSString+Format.m */,
+				CBF22C1B20779E7A00DF1EF6 /* NSString+URLEncode.h */,
+				CBF22C1C20779E7A00DF1EF6 /* NSString+URLEncode.m */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -744,6 +759,8 @@
 				CB51FD2F2074D1D1009303B4 /* MComic.m in Sources */,
 				CB35DA322075274A00440879 /* CharacterVM.m in Sources */,
 				CB51FC8A20734A2F009303B4 /* Marvel_Comics.xcdatamodeld in Sources */,
+				CBF22C1D20779E7A00DF1EF6 /* NSString+URLEncode.m in Sources */,
+				CBF22C1A2077963800DF1EF6 /* NSString+Format.m in Sources */,
 				CB34CD3920762E26007AB7E6 /* CharacterDetailDataController.m in Sources */,
 				CBBC3B46207700890023C855 /* GlobalConfig.m in Sources */,
 				CB51FD3E2074D7AA009303B4 /* MComicSummary.m in Sources */,
@@ -773,6 +790,7 @@
 				CBBC3B52207728CF0023C855 /* LPImageDownloader.m in Sources */,
 				CB51FD0A2074656D009303B4 /* ImageCacheManager.m in Sources */,
 				CB51FD382074D655009303B4 /* MSummary.m in Sources */,
+				CBBC3B58207764300023C855 /* MasterViewController+Search.m in Sources */,
 				CBBC3B55207730580023C855 /* LPImageDownloadOperation.m in Sources */,
 				CB51FD1320746C9D009303B4 /* LPImageCache.m in Sources */,
 				CB34CD002075CD20007AB7E6 /* UIImage+Processing.m in Sources */,

@@ -11,8 +11,9 @@
 #import "CharacterDataController.h"
 #import "UIActivityIndicatorView+Loading.h"
 #import "NotificationName.h"
+#import "MasterViewController+Search.h"
 
-@interface MasterViewController ()
+@interface MasterViewController () <UISearchBarDelegate>
 @property (nonatomic,strong) CharacterDataController *dataController;
 @end
 
@@ -32,7 +33,7 @@
     
     //[UIActivityIndicatorView show:self.view timeout:3];
     
-    [self buildDataSource];
+   // [self buildDataSource];
 }
 
 
@@ -95,6 +96,10 @@
 #pragma mark - init Views
 - (void) setupViews
 {
+    //Search Bar
+    self.searchBar.delegate = self;
+    
+    //Table View
     NSString *className = NSStringFromClass([CharacterTableViewCell class]);
 //    [self.tableView registerClass:[CharacterTableViewCell class] forCellReuseIdentifier:NSStringFromClass([CharacterTableViewCell class])];
 //
@@ -107,17 +112,30 @@
 #pragma mark - Data Controller
 - (void) buildDataSource
 {
+    //Avoid of mutilple requests in short time.
+    static BOOL isFetechingData;
+    @synchronized(self)
+    {
+        if (isFetechingData) {
+            return;
+        }
+    }
     [LoadingView show:self.view];
-    
-    NSMutableDictionary *params ;
+    isFetechingData = YES;
+    NSDictionary *params = [self.dataController buildParameters:self.searchWord
+                                                          limit:20
+                                                         offset:self.offset
+                                                        orderBy:nil];
     WS(ws);
     [self.dataController buildDataSource:(NSDictionary *)params
                                  success:^(id data) {
                                      BaseResponseData *responseData = data;
                                      [ws onDataSourceChanged:responseData.results];
+                                     isFetechingData = NO;
                                      [LoadingView dismiss];
                                  } failure:^(NSError *error) {
                                      NSLog(@"%@",error);
+                                     isFetechingData = NO;
                                      [LoadingView dismiss];
                                  }];
 }
@@ -186,4 +204,17 @@
 }
  */
 
+#pragma mark -- UISearchBarDelegate
+- (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText
+{
+    [self searchBar:searchBar textDidChange:searchText];
+}
+- (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar
+{
+    [self searchBarCancelButtonClicked:searchBar];
+}
+- (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar
+{
+    [self searchBarSearchButtonClicked:searchBar];
+}
 @end

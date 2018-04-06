@@ -10,5 +10,8 @@
 #import "DataControllerProtocol.h"
 
 @interface CharacterDataController : NSObject<DataControllerProtocol>
-
+- (NSDictionary *)buildParameters:(NSString *)searchName
+                            limit:(NSUInteger)limit
+                           offset:(NSUInteger)offset
+                          orderBy:(NSString *)orderBy;
 @end
