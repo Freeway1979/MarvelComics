@@ -66,6 +66,7 @@
 		CB51FD3E2074D7AA009303B4 /* MComicSummary.m in Sources */ = {isa = PBXBuildFile; fileRef = CB51FD3D2074D7AA009303B4 /* MComicSummary.m */; };
 		CB51FD412074D7B7009303B4 /* MEventSummary.m in Sources */ = {isa = PBXBuildFile; fileRef = CB51FD402074D7B7009303B4 /* MEventSummary.m */; };
 		CB51FD442074D7CD009303B4 /* MSeriesSummary.m in Sources */ = {isa = PBXBuildFile; fileRef = CB51FD432074D7CD009303B4 /* MSeriesSummary.m */; };
+		CBBC3B46207700890023C855 /* GlobalConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = CBBC3B45207700890023C855 /* GlobalConfig.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -204,6 +205,8 @@
 		CB51FD402074D7B7009303B4 /* MEventSummary.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MEventSummary.m; sourceTree = "<group>"; };
 		CB51FD422074D7CD009303B4 /* MSeriesSummary.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MSeriesSummary.h; sourceTree = "<group>"; };
 		CB51FD432074D7CD009303B4 /* MSeriesSummary.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MSeriesSummary.m; sourceTree = "<group>"; };
+		CBBC3B44207700890023C855 /* GlobalConfig.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GlobalConfig.h; sourceTree = "<group>"; };
+		CBBC3B45207700890023C855 /* GlobalConfig.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GlobalConfig.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -311,6 +314,7 @@
 		CB51FC8420734A2F009303B4 /* Marvel Comics */ = {
 			isa = PBXGroup;
 			children = (
+				CBBC3B40207700510023C855 /* Config */,
 				CB34CD4120768BB2007AB7E6 /* Constant */,
 				CB34CD3D207684DE007AB7E6 /* DataProvider */,
 				CB34CCEC20759A7E007AB7E6 /* DataController */,
@@ -563,6 +567,15 @@
 			path = Response;
 			sourceTree = "<group>";
 		};
+		CBBC3B40207700510023C855 /* Config */ = {
+			isa = PBXGroup;
+			children = (
+				CBBC3B44207700890023C855 /* GlobalConfig.h */,
+				CBBC3B45207700890023C855 /* GlobalConfig.m */,
+			);
+			path = Config;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -715,6 +728,7 @@
 				CB35DA322075274A00440879 /* CharacterVM.m in Sources */,
 				CB51FC8A20734A2F009303B4 /* Marvel_Comics.xcdatamodeld in Sources */,
 				CB34CD3920762E26007AB7E6 /* CharacterDetailDataController.m in Sources */,
+				CBBC3B46207700890023C855 /* GlobalConfig.m in Sources */,
 				CB51FD3E2074D7AA009303B4 /* MComicSummary.m in Sources */,
 				CB51FD0520746506009303B4 /* MThumbnail.m in Sources */,
 				CB51FD1620749151009303B4 /* MarvelNetProvider.m in Sources */,

@@ -10,10 +10,13 @@
 
 @interface FavouriteDataProvider : NSObject
 
++(instancetype) shared;
+
 + (BOOL)isFavouritedCharacterWithId:(NSString *)characterId;
 + (void)favouriteCharacterWithId:(NSString *)characterId;
 + (void)unfavouriteCharacterWithId:(NSString *)characterId;
-+ (void)saveToLocalFile;
-+ (void)loadFromLocalFile;
+
+- (void)saveToLocalFile;
+- (void)loadFromLocalFile;
 
 @end

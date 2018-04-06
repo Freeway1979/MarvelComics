@@ -9,21 +9,23 @@
 #import "AppDelegate.h"
 #import "DetailViewController.h"
 #import "MasterViewController.h"
-
+#import "GlobalConfig.h"
 
 @interface AppDelegate () <UISplitViewControllerDelegate>
+
+//Holds all global config which needs to be alive within application's lifecycle.
+
+@property (nonatomic,strong) GlobalConfig *globalConfig;
 
 @end
 
 @implementation AppDelegate
 
-- (void)test
+- (void)setupApp
 {
-    CGFloat scale = [UIScreen mainScreen].scale;
-    
-    NSLog(@"screen scale = %f",scale);
-   
+    self.globalConfig = [GlobalConfig shared];
 }
+
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     UISplitViewController *splitViewController = (UISplitViewController *)self.window.rootViewController;
@@ -34,7 +36,7 @@
 //    UINavigationController *masterNavigationController = splitViewController.viewControllers[0];
 ////    MasterViewController *controller = (MasterViewController *)masterNavigationController.topViewController;
 //
-    [self test];
+    [self setupApp];
     
     return YES;
 }

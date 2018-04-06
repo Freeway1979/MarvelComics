@@ -25,20 +25,27 @@
     // Put teardown code here. This method is called after the invocation of each test method in the class.
     [super tearDown];
 }
-//- (void)testMD5 {
-//    NSString *str = @"1abcd1234";
-//    NSLog(@"%@-->%@",str,[[str MD5String] lowercaseString]);
-//}
-//- (void)testNetGetChars {
-//    // This is an example of a functional test case.
-//    // Use XCTAssert and related functions to verify your tests produce the correct results.
-//    NSLog(@"testNetGetChars");
-//    [MarvelNetProvider getCharacterList:nil success:^(id responseDic) {
-//        NSLog(@"response %@",responseDic);
-//    } failure:^(NSError *error) {
-//        NSLog(@"error %@",error);
-//    }];
-//}
+
+- (void)testScreenScale
+{
+    CGFloat scale = [UIScreen mainScreen].scale;
+    NSLog(@"screen scale = %f",scale);
+}
+
+- (void)testMD5 {
+    NSString *str = @"1abcd1234";
+    NSLog(@"%@-->%@",str,[[str MD5String] lowercaseString]);
+}
+- (void)testNetGetChars {
+    // This is an example of a functional test case.
+    // Use XCTAssert and related functions to verify your tests produce the correct results.
+    NSLog(@"testNetGetChars");
+    [MarvelNetProvider getCharacterList:nil success:^(id responseDic) {
+        NSLog(@"response %@",responseDic);
+    } failure:^(NSError *error) {
+        NSLog(@"error %@",error);
+    }];
+}
 
 - (void)testNetGetChars2 {
     //    NSString *url = @"http://gateway.marvel.com/v1/public/characters?ts=1522829299133&apikey=26f078219f521b98b320e9283bc73bd5&hash=735f8dc77f52d737a1c7f0e5370df376";

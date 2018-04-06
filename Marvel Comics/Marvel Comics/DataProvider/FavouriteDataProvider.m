@@ -8,50 +8,55 @@
 
 #import "FavouriteDataProvider.h"
 @interface FavouriteDataProvider ()
-{
-
-}
+@property (nonatomic,strong) NSMutableDictionary<NSString *,NSNumber *> *favouriteDictionary;
 @end
-static NSMutableDictionary<NSString *,NSNumber *> *favouriteDictionary;
 @implementation FavouriteDataProvider
++ (instancetype)shared
+{
+    static FavouriteDataProvider *shared = nil;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        shared = [[FavouriteDataProvider alloc] init];
+        shared.favouriteDictionary = [NSMutableDictionary dictionary];
+    });
+    return shared;
+}
 
 + (void)favouriteCharacterWithId:(NSString *)characterId
 {
-    if (!favouriteDictionary) {
-        favouriteDictionary = [NSMutableDictionary dictionary];
-    }
-    [favouriteDictionary setObject:[NSNumber numberWithInt:1] forKey:characterId];
+    FavouriteDataProvider *shared = [FavouriteDataProvider shared];
+    [shared.favouriteDictionary setObject:[NSNumber numberWithInt:1] forKey:characterId];
+    [shared saveToLocalFile];
 }
 + (void)unfavouriteCharacterWithId:(NSString *)characterId
 {
-    if (!favouriteDictionary) {
-        favouriteDictionary = [NSMutableDictionary dictionary];
-    }
-    [favouriteDictionary removeObjectForKey:characterId];
+    FavouriteDataProvider *shared = [FavouriteDataProvider shared];
+    [shared.favouriteDictionary removeObjectForKey:characterId];
+    [shared saveToLocalFile];
 }
 + (BOOL)isFavouritedCharacterWithId:(NSString *)characterId
 {
-    if (!favouriteDictionary) {
-        favouriteDictionary = [NSMutableDictionary dictionary];
-    }
-    NSNumber *num = [favouriteDictionary objectForKey:characterId];
+    FavouriteDataProvider *shared = [FavouriteDataProvider shared];
+    
+    NSNumber *num = [shared.favouriteDictionary objectForKey:characterId];
     if (num) {
         return num.integerValue==1;
     }
     return NO;
 }
-+ (void)saveToLocalFile
+
+- (void)saveToLocalFile
 {
     NSArray *documents = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *path = [documents[0] stringByAppendingPathComponent:@"favouriteDictionary.plist"];
-    [favouriteDictionary writeToFile:path atomically:YES];
+    [self.favouriteDictionary writeToFile:path atomically:YES];
 }
 
-+ (void)loadFromLocalFile
+- (void)loadFromLocalFile
 {
     NSArray *documents = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *path = [documents[0] stringByAppendingPathComponent:@"favouriteDictionary.plist"];
    
-    favouriteDictionary = [NSMutableDictionary dictionaryWithDictionary:[NSDictionary dictionaryWithContentsOfFile:path]];
+    self.favouriteDictionary = [NSMutableDictionary dictionaryWithDictionary:[NSDictionary dictionaryWithContentsOfFile:path]];
 }
 @end
