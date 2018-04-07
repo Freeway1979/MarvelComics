@@ -15,6 +15,7 @@
 @interface DetailViewController ()
 
 @property (strong,nonatomic) CharacterDetailDataController *dataController;
+
 @property (strong,nonatomic) NSArray<GroupImageSubtitleVM *> *dataSource;
 
 @end

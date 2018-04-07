@@ -15,11 +15,13 @@ static NSString *lastSearchText;
     NSLog(@"textDidChange");
     //User clear text to get all charaters
     if (searchText.length==0 && lastSearchText.length>0) {
-        self.searchWord = searchText;
-        self.offset = 0;
-        self.isPaginationMode = NO;
+        [self updateDataParameters:searchText
+                             limit:0
+                            offset:0
+                      isPageEnabled:NO];
+
         lastSearchText = searchText;
-        [self buildDataSource];
+        [self.dataController buildDataSource];
     }
 }
 - (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar
@@ -35,18 +37,12 @@ static NSString *lastSearchText;
         return;
     }
     //rebuild data source and update views
-    //TEST
-    if ([searchText containsString:@"Next"]) {
-        self.searchWord = nil;
-        lastSearchText = searchText;
-        [self loadNextPageData];
-        return;
-    }
+    [self updateDataParameters:searchText
+                         limit:0
+                        offset:0
+                 isPageEnabled:NO];
     
-    self.searchWord = searchText;
-    self.offset = 0;
-    self.isPaginationMode = NO;
     lastSearchText = searchText;
-    [self buildDataSource];
+    [self.dataController buildDataSource];
 }
 @end

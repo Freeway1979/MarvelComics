@@ -9,8 +9,10 @@
 #import <UIKit/UIKit.h>
 #import "MCharacter.h"
 #import "CharacterVM.h"
+#import "CharacterDataController.h"
 
 @class DetailViewController;
+@class CharacterDataController;
 
 @interface MasterViewController : UITableViewController<UISearchBarDelegate,UIScrollViewDelegate>
 
@@ -18,16 +20,26 @@
 
 @property (strong, nonatomic) DetailViewController *detailViewController;
 
+@property (nonatomic,strong) CharacterDataController *dataController;
+
 @property (strong, nonatomic) NSArray<CharacterVM *> *characterList;
 
-#pragma mark - search
-@property (nonatomic,assign) NSUInteger offset;
-@property (nonatomic,assign) NSUInteger limit;
-@property (nonatomic,copy) NSString *searchWord;
-#pragma mark -pagination
-@property (nonatomic,assign) BOOL isPaginationMode;
 
-- (void) buildDataSource;
+#pragma mark - loading view
+- (void)showLoadingAnimation;
+
+- (void)dismissLoadingAnimation;
+
+- (void)onDataSourceChanged:(NSArray<CharacterVM *> *)dataSource
+         insertedIndexPaths:(NSArray<NSIndexPath *> *)insertedIndexPaths
+          scrollToIndexPath:(NSIndexPath *)scrollToIndexPath
+              isPageEnabled:(BOOL)isPageEnabled;
+
+- (void)updateDataParameters:(NSString *)searchWord
+                       limit:(NSUInteger)limit
+                      offset:(NSUInteger)offset
+               isPageEnabled:(BOOL) isPageEnabled;
+
 - (void) loadNextPageData;
 
 @end

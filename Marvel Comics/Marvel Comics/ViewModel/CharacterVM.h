@@ -9,6 +9,8 @@
 #import <Foundation/Foundation.h>
 #import "MCharacter.h"
 #import "CharacterTableViewCell.h"
+
+@class MCharacter;
 @interface CharacterVM : NSObject <CharacterTableViewCellDelegate>
 
 @property (nonatomic,strong) MCharacter *character;

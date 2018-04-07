@@ -39,6 +39,5 @@ static UIActivityIndicatorView *activityIndicatorView;
 + (void)dismiss
 {
     [activityIndicatorView stopAnimating];
-    
 }
 @end

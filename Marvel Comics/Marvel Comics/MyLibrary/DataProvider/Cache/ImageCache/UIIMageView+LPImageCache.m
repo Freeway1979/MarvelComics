@@ -10,7 +10,7 @@
 //#import "objc/runtime.h"
 #import "UIImage+Processing.h"
 
-static char imageURLKey;
+//static char imageURLKey;
 
 @implementation UIImageView (LPImageCache)
 - (void)setImageWithURL:(NSURL *)url

@@ -14,7 +14,7 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
-typedef void(^NoParamsBlock)();
+typedef void(^NoParamsBlock)(void);
 
 #define kScreenScale [UIScreen mainScreen].scale
 #define kFontAuto(size) [UIFont systemFontOfSize:(size * kScreenScale / 2.0)]

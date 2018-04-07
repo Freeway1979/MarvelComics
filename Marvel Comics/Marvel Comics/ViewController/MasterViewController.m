@@ -14,7 +14,6 @@
 #import "MasterViewController+Search.h"
 
 @interface MasterViewController () <UISearchBarDelegate>
-@property (nonatomic,strong) CharacterDataController *dataController;
 @end
 
 @implementation MasterViewController
@@ -24,18 +23,14 @@
     // Do any additional setup after loading the view, typically from a nib.
     
     self.detailViewController = (DetailViewController *)[[self.splitViewController.viewControllers lastObject] topViewController];
-    self.characterList = [NSMutableArray array];
+
     [self setupViews];
-    self.dataController = [[CharacterDataController alloc] init];
-    //Default to pagination mode
-    self.isPaginationMode = YES;
-    self.limit = RecordNumberPerPage;
-    self.offset = 0;
+    
+    self.dataController = [[CharacterDataController alloc] initViewController:self];
+
     [self registerNotificationObservers];
     
-    //[UIActivityIndicatorView show:self.view timeout:3];
-    
-    [self buildDataSource];
+    [self.dataController buildDataSource];
 }
 
 
@@ -103,8 +98,6 @@
     
     //Table View
     NSString *className = NSStringFromClass([CharacterTableViewCell class]);
-//    [self.tableView registerClass:[CharacterTableViewCell class] forCellReuseIdentifier:NSStringFromClass([CharacterTableViewCell class])];
-//
     NSBundle *mainBundle = [NSBundle mainBundle];
     [self.tableView registerNib:[UINib nibWithNibName:className bundle:mainBundle]
          forCellReuseIdentifier:className];
@@ -120,94 +113,54 @@
     [[UIApplication sharedApplication].keyWindow endEditing:YES];
 }
 #pragma mark - Data Controller
-- (void) loadNextPageData {
-    self.offset += self.limit;
-    self.isPaginationMode = YES;
-    [self buildDataSource];
-}
-- (void) buildDataSource
+- (void)onDataSourceChanged:(NSArray<CharacterVM *> *)dataSource
+         insertedIndexPaths:(NSArray<NSIndexPath *> *)insertedIndexPaths
+          scrollToIndexPath:(NSIndexPath *)scrollToIndexPath
+              isPageEnabled:(BOOL)isPageEnabled
 {
-    //Avoid of mutilple requests in short time.
-    static BOOL isFetechingData;
-    @synchronized(self)
-    {
-        if (isFetechingData) {
-            return;
-        }
-    }
-    [LoadingView show:self.view];
-    [self dismissKeyboard];
-    isFetechingData = YES;
-    CharacterListRequest *request = [self.dataController buildParameters:self.searchWord
-                                                          limit:RecordNumberPerPage
-                                                         offset:self.offset
-                                                        orderBy:nil];
-    WS(ws);
-    [self.dataController buildDataSource:request
-                                 success:^(id data) {
-                                     BaseResponseData *responseData = data;
-                                     [ws onDataSourceChanged:responseData.results];
-                                     isFetechingData = NO;
-                                     [LoadingView dismiss];
-                                 } failure:^(NSError *error) {
-                                     NSLog(@"%@",error);
-                                     isFetechingData = NO;
-                                     [LoadingView dismiss];
-                                 }];
-}
-- (void)onDataSourceChanged:(NSArray *)data
-{
-    NSMutableArray<CharacterVM *> *list = [NSMutableArray array];
-    if (self.isPaginationMode) {
-        [list addObjectsFromArray:self.characterList];
-    }
-    NSUInteger rowCount = list.count;
-    NSMutableArray<CharacterVM *> *newData = [NSMutableArray arrayWithCapacity:[data count]];
-    for (MCharacter *ch in data) {
-        CharacterVM *vm = [[CharacterVM alloc] initWithCharacter:ch];
-        [newData addObject:vm];
-    }
-    [list addObjectsFromArray:newData];
-    
-    //Locked to avoid reading characterList to update tableView while writing.
-    if (self.isPaginationMode) {
-        [self insertRowsOfData:newData
-                    dataSource:list
-                  lastRowCount:rowCount];
-    }
-    else
-    {
-        [self.tableView reloadData];
-
-    }
-    [self dismissKeyboard];
-}
-
-- (void)insertRowsOfData:(NSArray<CharacterVM *> *)data
-              dataSource:(NSArray<CharacterVM *> *)dataSource
-            lastRowCount:(NSUInteger)lastRowCount
-{
-    //NSUInteger lastRowIndex = lastRowCount;
-    NSMutableArray *insertIndexPaths = [NSMutableArray arrayWithCapacity:[data count]];
-    for (int index = 0; index < [data count]; index++) {
-        CharacterVM *item = [data objectAtIndex:index];
-        NSUInteger row = [dataSource indexOfObject:item];
-        NSIndexPath *newPath =  [NSIndexPath indexPathForRow:row inSection:0];
-        NSLog(@"%@ %ld %ld",newPath,newPath.section,newPath.row);
-        [insertIndexPaths addObject:newPath];
-    }
-    NSIndexPath *lastIndexPath = [NSIndexPath indexPathForRow:lastRowCount+1 inSection:0];
     @synchronized(self)
     {
         self.characterList = dataSource;
-        [self.tableView beginUpdates];
-        [self.tableView insertRowsAtIndexPaths:insertIndexPaths
-                              withRowAnimation:UITableViewRowAnimationFade];
-        [self.tableView endUpdates];
-        [self.tableView scrollToRowAtIndexPath:lastIndexPath
-                              atScrollPosition:UITableViewScrollPositionBottom animated:YES];
+        if (isPageEnabled) {
+            [self.tableView beginUpdates];
+            [self.tableView insertRowsAtIndexPaths:insertedIndexPaths
+                                  withRowAnimation:UITableViewRowAnimationFade];
+            [self.tableView endUpdates];
+            [self.tableView scrollToRowAtIndexPath:scrollToIndexPath
+                                  atScrollPosition:UITableViewScrollPositionBottom animated:YES];
+        }
+        else
+        {
+            [self.tableView reloadData];
+        }
     }
+    [self dismissKeyboard];
 }
+
+- (void) loadNextPageData {
+    [self.dataController loadNextPage];
+}
+
+- (void)updateDataParameters:(NSString *)searchWord
+                       limit:(NSUInteger)limit
+                      offset:(NSUInteger)offset
+               isPageEnabled:(BOOL) isPageEnabled
+{
+    self.dataController.searchWord = searchWord;
+    self.dataController.limit = limit==0?RecordNumberPerPage:limit;
+    self.dataController.offset = offset;
+    self.dataController.isPaginationMode = isPageEnabled;
+}
+#pragma mark - loading view
+- (void)showLoadingAnimation
+{
+    [UIActivityIndicatorView show:self.view];
+}
+- (void)dismissLoadingAnimation
+{
+    [UIActivityIndicatorView dismiss];
+}
+
 #pragma mark - Table View
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -261,18 +214,7 @@
  */
 
 #pragma mark -- UISearchBarDelegate
-- (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText
-{
-    [self searchBar:searchBar textDidChange:searchText];
-}
-- (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar
-{
-    [self searchBarCancelButtonClicked:searchBar];
-}
-- (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar
-{
-    [self searchBarSearchButtonClicked:searchBar];
-}
+//MasterViewController+Search.m
 
 #pragma mark - UIScrollViewDelegate
 -(void)scrollViewDidScroll:(UIScrollView *)scrollView
@@ -280,10 +222,8 @@
     if (scrollView.contentOffset.y >= MAX(0, scrollView.contentSize.height - scrollView.frame.size.height) + 50)
     {
         NSLog(@"Release to load");
-        //self.footerLabel.text = "松开加载"
     } else {
         //NSLog(@"Pull to load");
-        //self.footerLabel.text = "上啦加载"
     }
 }
 -(void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate

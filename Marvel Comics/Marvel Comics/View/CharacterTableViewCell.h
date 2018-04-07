@@ -16,11 +16,11 @@
 
 @interface CharacterTableViewCell : UITableViewCell
 
-- (IBAction)onFavouriteButtonClicked:(UIButton *)sender;
-@property (weak, nonatomic) IBOutlet UIButton *mFavouriteButton;
-@property (weak, nonatomic) IBOutlet UILabel *mTitleLabel;
-@property (weak, nonatomic) IBOutlet UILabel *mSubtitleLabel;
-@property (weak, nonatomic) IBOutlet UIImageView *mImageView;
+- (IBAction)onFavouriteButtonClicked:(UIButton *_Nullable)sender;
+@property (weak, nonatomic) IBOutlet UIButton * _Nullable mFavouriteButton;
+@property (weak, nonatomic) IBOutlet UILabel * _Nullable mTitleLabel;
+@property (weak, nonatomic) IBOutlet UILabel * _Nullable mSubtitleLabel;
+@property (weak, nonatomic) IBOutlet UIImageView * _Nullable mImageView;
 
 @property (nonatomic, weak, nullable) id <CharacterTableViewCellDelegate> delegate;
 

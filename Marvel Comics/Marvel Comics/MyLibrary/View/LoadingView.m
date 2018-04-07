@@ -22,12 +22,12 @@ static LoadingView *loadView;
 
 + (void)show:(UIView *)superView
 {
-    if (!loadView) {
-        loadView = [[LoadingView alloc] initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height)];
-        loadView.backgroundColor = [UIColor clearColor];
-        loadView.center = superView.center;
-    }
+    loadView = [[LoadingView alloc] initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height)];
+    loadView.backgroundColor = [UIColor clearColor];
+    loadView.center = superView.center;
+
     [superView addSubview:loadView];
+    [superView bringSubviewToFront:loadView];
 }
 + (void)dismiss {
 
