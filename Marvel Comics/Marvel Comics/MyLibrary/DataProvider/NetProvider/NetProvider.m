@@ -9,6 +9,7 @@
 #import "NetProvider.h"
 #import "LPHTTPSessionManager.h"
 #import "NSString+URLEncode.h"
+#import "NSDictionary+URLEncodedString.h"
 
 @implementation NetProvider
 
@@ -19,12 +20,9 @@
                        failure:(void (^)(NSError *error))failure
 {
     NSMutableString *finalUrlString = [NSMutableString stringWithString:URLString];
-    if (params.count>0) {
-        NSMutableString *queryString = [NSMutableString string];
-        [params enumerateKeysAndObjectsUsingBlock:^(NSString *  _Nonnull key, NSString *  _Nonnull obj, BOOL * _Nonnull stop) {
-            [queryString appendFormat:@"&%@=%@",key,obj];
-        }];
-        [finalUrlString appendString:[queryString urlEncodedString]];
+    NSString *queryString = [params urlQueryString:YES];
+    if (queryString) {
+        [finalUrlString appendString:queryString];
     }
     NSString *finalUrl = finalUrlString;
     NSLog(@"finalUrl %@",finalUrl);
@@ -36,7 +34,8 @@
         if (success) {
             success(response);
         }
-    } failure:^(NSURLSessionDataTask * _Nullable dataTask, NSError * _Nonnull error) {
+    }
+                failure:^(NSURLSessionDataTask * _Nullable dataTask, NSError * _Nonnull error) {
         if (failure) {
             failure(error);
         }
@@ -49,12 +48,24 @@
                         success:(void (^)(id responseDic))success
                         failure:(void (^)(NSError *error))failure
 {
+    NSMutableString *finalUrlString = [NSMutableString stringWithString:URLString];
+    NSString *queryString = [params urlQueryString:YES];
+    if (queryString) {
+        [finalUrlString appendString:queryString];
+    }
+    NSString *finalUrl = finalUrlString;
+    NSLog(@"finalUrl %@",finalUrl);
+    
     LPHTTPSessionManager *sessionManager = [LPHTTPSessionManager sharedJSONManager];
-    [sessionManager POST:URLString parameters:params config:config success:^(NSURLSessionDataTask * _Nonnull dataTask, id _Nullable response) {
+    [sessionManager POST:finalUrl
+              parameters:nil
+                  config:config
+                 success:^(NSURLSessionDataTask * _Nonnull dataTask, id _Nullable response) {
         if (success) {
             success(response);
         }
-    } failure:^(NSURLSessionDataTask * _Nullable dataTask, NSError * _Nonnull error) {
+    }
+                 failure:^(NSURLSessionDataTask * _Nullable dataTask, NSError * _Nonnull error) {
         if (failure) {
             failure(error);
         }

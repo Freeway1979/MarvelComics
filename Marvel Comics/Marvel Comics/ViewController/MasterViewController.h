@@ -22,10 +22,13 @@
 
 #pragma mark - search
 @property (nonatomic,assign) NSUInteger offset;
+@property (nonatomic,assign) NSUInteger limit;
 @property (nonatomic,copy) NSString *searchWord;
-
+#pragma mark -pagination
+@property (nonatomic,assign) BOOL isPaginationMode;
 
 - (void) buildDataSource;
+- (void) loadNextPageData;
 
 @end
 

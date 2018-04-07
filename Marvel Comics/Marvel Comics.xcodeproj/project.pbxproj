@@ -73,6 +73,10 @@
 		CBBC3B58207764300023C855 /* MasterViewController+Search.m in Sources */ = {isa = PBXBuildFile; fileRef = CBBC3B57207764300023C855 /* MasterViewController+Search.m */; };
 		CBF22C1A2077963800DF1EF6 /* NSString+Format.m in Sources */ = {isa = PBXBuildFile; fileRef = CBF22C192077963800DF1EF6 /* NSString+Format.m */; };
 		CBF22C1D20779E7A00DF1EF6 /* NSString+URLEncode.m in Sources */ = {isa = PBXBuildFile; fileRef = CBF22C1C20779E7A00DF1EF6 /* NSString+URLEncode.m */; };
+		CBF22C20207828E500DF1EF6 /* NSDictionary+URLEncodedString.m in Sources */ = {isa = PBXBuildFile; fileRef = CBF22C1F207828E500DF1EF6 /* NSDictionary+URLEncodedString.m */; };
+		CBF22C24207835A300DF1EF6 /* BaseRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = CBF22C23207835A300DF1EF6 /* BaseRequest.m */; };
+		CBF22C272078387F00DF1EF6 /* NSObject+NSDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = CBF22C262078387F00DF1EF6 /* NSObject+NSDictionary.m */; };
+		CBF22C2A2078397500DF1EF6 /* CharacterListRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = CBF22C292078397500DF1EF6 /* CharacterListRequest.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -226,6 +230,14 @@
 		CBF22C192077963800DF1EF6 /* NSString+Format.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSString+Format.m"; sourceTree = "<group>"; };
 		CBF22C1B20779E7A00DF1EF6 /* NSString+URLEncode.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSString+URLEncode.h"; sourceTree = "<group>"; };
 		CBF22C1C20779E7A00DF1EF6 /* NSString+URLEncode.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSString+URLEncode.m"; sourceTree = "<group>"; };
+		CBF22C1E207828E500DF1EF6 /* NSDictionary+URLEncodedString.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+URLEncodedString.h"; sourceTree = "<group>"; };
+		CBF22C1F207828E500DF1EF6 /* NSDictionary+URLEncodedString.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+URLEncodedString.m"; sourceTree = "<group>"; };
+		CBF22C22207835A300DF1EF6 /* BaseRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseRequest.h; sourceTree = "<group>"; };
+		CBF22C23207835A300DF1EF6 /* BaseRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BaseRequest.m; sourceTree = "<group>"; };
+		CBF22C252078387F00DF1EF6 /* NSObject+NSDictionary.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSObject+NSDictionary.h"; sourceTree = "<group>"; };
+		CBF22C262078387F00DF1EF6 /* NSObject+NSDictionary.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSObject+NSDictionary.m"; sourceTree = "<group>"; };
+		CBF22C282078397500DF1EF6 /* CharacterListRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CharacterListRequest.h; sourceTree = "<group>"; };
+		CBF22C292078397500DF1EF6 /* CharacterListRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CharacterListRequest.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -400,6 +412,10 @@
 				CBF22C192077963800DF1EF6 /* NSString+Format.m */,
 				CBF22C1B20779E7A00DF1EF6 /* NSString+URLEncode.h */,
 				CBF22C1C20779E7A00DF1EF6 /* NSString+URLEncode.m */,
+				CBF22C1E207828E500DF1EF6 /* NSDictionary+URLEncodedString.h */,
+				CBF22C1F207828E500DF1EF6 /* NSDictionary+URLEncodedString.m */,
+				CBF22C252078387F00DF1EF6 /* NSObject+NSDictionary.h */,
+				CBF22C262078387F00DF1EF6 /* NSObject+NSDictionary.m */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -529,6 +545,7 @@
 		CB51FCE2207380A5009303B4 /* RESTAPI */ = {
 			isa = PBXGroup;
 			children = (
+				CBF22C212078357500DF1EF6 /* Request */,
 				CB51FD1A2074CA42009303B4 /* Response */,
 				CB51FCE3207380B8009303B4 /* RESTAPI.h */,
 				CB51FCE4207380B8009303B4 /* RESTAPI.m */,
@@ -606,6 +623,17 @@
 				CBBC3B45207700890023C855 /* GlobalConfig.m */,
 			);
 			path = Config;
+			sourceTree = "<group>";
+		};
+		CBF22C212078357500DF1EF6 /* Request */ = {
+			isa = PBXGroup;
+			children = (
+				CBF22C22207835A300DF1EF6 /* BaseRequest.h */,
+				CBF22C23207835A300DF1EF6 /* BaseRequest.m */,
+				CBF22C282078397500DF1EF6 /* CharacterListRequest.h */,
+				CBF22C292078397500DF1EF6 /* CharacterListRequest.m */,
+			);
+			path = Request;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -771,7 +799,9 @@
 				CB51FD1D2074CA52009303B4 /* BaseResponse.m in Sources */,
 				CB34CD032075D514007AB7E6 /* UIUtils.m in Sources */,
 				CB34CCF920759E27007AB7E6 /* AsyncTaskManager.m in Sources */,
+				CBF22C20207828E500DF1EF6 /* NSDictionary+URLEncodedString.m in Sources */,
 				CB51FD0D2074664C009303B4 /* AutoPurgeCache.m in Sources */,
+				CBF22C272078387F00DF1EF6 /* NSObject+NSDictionary.m in Sources */,
 				CB51FCCA20734F6E009303B4 /* RequestConfig.m in Sources */,
 				CB51FD412074D7B7009303B4 /* MEventSummary.m in Sources */,
 				CB51FCCE207352AE009303B4 /* LPHTTPSessionManager.m in Sources */,
@@ -791,6 +821,8 @@
 				CB51FD0A2074656D009303B4 /* ImageCacheManager.m in Sources */,
 				CB51FD382074D655009303B4 /* MSummary.m in Sources */,
 				CBBC3B58207764300023C855 /* MasterViewController+Search.m in Sources */,
+				CBF22C24207835A300DF1EF6 /* BaseRequest.m in Sources */,
+				CBF22C2A2078397500DF1EF6 /* CharacterListRequest.m in Sources */,
 				CBBC3B55207730580023C855 /* LPImageDownloadOperation.m in Sources */,
 				CB51FD1320746C9D009303B4 /* LPImageCache.m in Sources */,
 				CB34CD002075CD20007AB7E6 /* UIImage+Processing.m in Sources */,

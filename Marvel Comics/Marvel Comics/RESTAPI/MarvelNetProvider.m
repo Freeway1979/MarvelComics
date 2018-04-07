@@ -10,13 +10,18 @@
 #import "RESTAPI.h"
 #import "BaseResponse.h"
 #import "MCharacter.h"
+#import "CharacterListRequest.h"
+#import "NSDictionary+URLEncodedString.h"
 @implementation MarvelNetProvider
 
-+(void)getCharacterList:(NSDictionary *)params
++(void)getCharacterList:(CharacterListRequest *)request
                 success:(void (^)(BaseResponse *response))success
                 failure:(void (^)(NSError *error))failure
 {
     NSString *urlString = RESTAPI.urlOfListChars;
+    
+    NSDictionary *params = [request parameterDictionary];
+ 
     [NetProvider getRequestWithURLString:urlString
                               parameters:params
                                   config:nil

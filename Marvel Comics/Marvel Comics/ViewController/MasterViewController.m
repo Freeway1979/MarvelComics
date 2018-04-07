@@ -27,13 +27,15 @@
     self.characterList = [NSMutableArray array];
     [self setupViews];
     self.dataController = [[CharacterDataController alloc] init];
-    
+    //Default to pagination mode
+    self.isPaginationMode = YES;
+    self.limit = RecordNumberPerPage;
+    self.offset = 0;
     [self registerNotificationObservers];
-    
     
     //[UIActivityIndicatorView show:self.view timeout:3];
     
-   // [self buildDataSource];
+    [self buildDataSource];
 }
 
 
@@ -109,7 +111,18 @@
     
     self.tableView.tableFooterView = [UIView new];
 }
+- (void)dismissKeyboard
+{
+    [self.searchBar becomeFirstResponder];
+    [self.searchBar resignFirstResponder];
+    [[UIApplication sharedApplication].keyWindow endEditing:YES];
+}
 #pragma mark - Data Controller
+- (void) loadNextPageData {
+    self.offset += self.limit;
+    self.isPaginationMode = YES;
+    [self buildDataSource];
+}
 - (void) buildDataSource
 {
     //Avoid of mutilple requests in short time.
@@ -121,13 +134,14 @@
         }
     }
     [LoadingView show:self.view];
+    [self dismissKeyboard];
     isFetechingData = YES;
-    NSDictionary *params = [self.dataController buildParameters:self.searchWord
-                                                          limit:20
+    CharacterListRequest *request = [self.dataController buildParameters:self.searchWord
+                                                          limit:RecordNumberPerPage
                                                          offset:self.offset
                                                         orderBy:nil];
     WS(ws);
-    [self.dataController buildDataSource:(NSDictionary *)params
+    [self.dataController buildDataSource:request
                                  success:^(id data) {
                                      BaseResponseData *responseData = data;
                                      [ws onDataSourceChanged:responseData.results];
@@ -142,16 +156,21 @@
 - (void)onDataSourceChanged:(NSArray *)dataSource
 {
     NSMutableArray<CharacterVM *> *list = [NSMutableArray array];
+    if (self.isPaginationMode) {
+        [list addObjectsFromArray:self.characterList];
+    }
     for (MCharacter *ch in dataSource) {
         CharacterVM *vm = [[CharacterVM alloc] initWithCharacter:ch];
         [list addObject:vm];
     }
+    
     //Locked to avoid reading characterList to update tableView while writing.
     @synchronized(self)
     {
         self.characterList = list;
         [self.tableView reloadData];
     }
+    [self dismissKeyboard];
 }
 #pragma mark - Table View
 

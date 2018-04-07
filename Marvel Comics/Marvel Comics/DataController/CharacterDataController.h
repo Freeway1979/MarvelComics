@@ -8,9 +8,14 @@
 
 #import <Foundation/Foundation.h>
 #import "DataControllerProtocol.h"
+#import "MasterViewController.h"
+#import "CharacterListRequest.h"
 
 @interface CharacterDataController : NSObject<DataControllerProtocol>
-- (NSDictionary *)buildParameters:(NSString *)searchName
+
+@property (nonatomic,weak) MasterViewController *vc;
+
+- (CharacterListRequest *)buildParameters:(NSString *)searchName
                             limit:(NSUInteger)limit
                            offset:(NSUInteger)offset
                           orderBy:(NSString *)orderBy;

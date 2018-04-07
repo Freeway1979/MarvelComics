@@ -15,9 +15,9 @@ static NSString *lastSearchText;
     NSLog(@"textDidChange");
     //User clear text to get all charaters
     if (searchText.length==0 && lastSearchText.length>0) {
-        [searchBar resignFirstResponder];
         self.searchWord = searchText;
         self.offset = 0;
+        self.isPaginationMode = NO;
         lastSearchText = searchText;
         [self buildDataSource];
     }
@@ -29,16 +29,23 @@ static NSString *lastSearchText;
 - (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar
 {
     NSLog(@"searchBarSearchButtonClicked %@",searchBar.text);
-    [searchBar resignFirstResponder];
-    
     //
     NSString *searchText = searchBar.text;
     if ([searchText isEqualToString:lastSearchText]) {
         return;
     }
     //rebuild data source and update views
+    //TEST
+    if ([searchText containsString:@"Next"]) {
+        self.searchWord = nil;
+        lastSearchText = searchText;
+        [self loadNextPageData];
+        return;
+    }
+    
     self.searchWord = searchText;
     self.offset = 0;
+    self.isPaginationMode = NO;
     lastSearchText = searchText;
     [self buildDataSource];
 }

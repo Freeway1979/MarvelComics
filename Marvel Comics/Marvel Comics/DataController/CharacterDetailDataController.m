@@ -23,11 +23,11 @@
 /**
  Load Data Source from anywhere (network,local database,and file cache,etc...)
  
- @param params <#params description#>
+ @param params params request
  @param success <#success description#>
  @param failure <#failure description#>
  */
-- (void)buildDataSource:(NSDictionary *)params
+- (void)buildDataSource:(BaseRequest *)request
                 success:(void (^)(id))success
                 failure:(void (^)(NSError *))failure {
     
