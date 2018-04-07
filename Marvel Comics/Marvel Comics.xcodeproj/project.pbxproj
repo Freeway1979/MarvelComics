@@ -71,6 +71,7 @@
 		CBBC3B52207728CF0023C855 /* LPImageDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = CBBC3B51207728CF0023C855 /* LPImageDownloader.m */; };
 		CBBC3B55207730580023C855 /* LPImageDownloadOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = CBBC3B54207730580023C855 /* LPImageDownloadOperation.m */; };
 		CBBC3B58207764300023C855 /* MasterViewController+Search.m in Sources */ = {isa = PBXBuildFile; fileRef = CBBC3B57207764300023C855 /* MasterViewController+Search.m */; };
+		CBC885DF2078C39300B4615E /* MMarvel.m in Sources */ = {isa = PBXBuildFile; fileRef = CBC885DE2078C39300B4615E /* MMarvel.m */; };
 		CBF22C1A2077963800DF1EF6 /* NSString+Format.m in Sources */ = {isa = PBXBuildFile; fileRef = CBF22C192077963800DF1EF6 /* NSString+Format.m */; };
 		CBF22C1D20779E7A00DF1EF6 /* NSString+URLEncode.m in Sources */ = {isa = PBXBuildFile; fileRef = CBF22C1C20779E7A00DF1EF6 /* NSString+URLEncode.m */; };
 		CBF22C20207828E500DF1EF6 /* NSDictionary+URLEncodedString.m in Sources */ = {isa = PBXBuildFile; fileRef = CBF22C1F207828E500DF1EF6 /* NSDictionary+URLEncodedString.m */; };
@@ -226,6 +227,8 @@
 		CBBC3B54207730580023C855 /* LPImageDownloadOperation.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LPImageDownloadOperation.m; sourceTree = "<group>"; };
 		CBBC3B56207764300023C855 /* MasterViewController+Search.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MasterViewController+Search.h"; sourceTree = "<group>"; };
 		CBBC3B57207764300023C855 /* MasterViewController+Search.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "MasterViewController+Search.m"; sourceTree = "<group>"; };
+		CBC885DD2078C39300B4615E /* MMarvel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MMarvel.h; sourceTree = "<group>"; };
+		CBC885DE2078C39300B4615E /* MMarvel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MMarvel.m; sourceTree = "<group>"; };
 		CBF22C182077963800DF1EF6 /* NSString+Format.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSString+Format.h"; sourceTree = "<group>"; };
 		CBF22C192077963800DF1EF6 /* NSString+Format.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSString+Format.m"; sourceTree = "<group>"; };
 		CBF22C1B20779E7A00DF1EF6 /* NSString+URLEncode.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSString+URLEncode.h"; sourceTree = "<group>"; };
@@ -459,6 +462,8 @@
 				CB51FD402074D7B7009303B4 /* MEventSummary.m */,
 				CB51FD422074D7CD009303B4 /* MSeriesSummary.h */,
 				CB51FD432074D7CD009303B4 /* MSeriesSummary.m */,
+				CBC885DD2078C39300B4615E /* MMarvel.h */,
+				CBC885DE2078C39300B4615E /* MMarvel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -803,6 +808,7 @@
 				CB51FD0520746506009303B4 /* MThumbnail.m in Sources */,
 				CB51FD1620749151009303B4 /* MarvelNetProvider.m in Sources */,
 				CB51FCFF20745D0E009303B4 /* NSString+JSON.m in Sources */,
+				CBC885DF2078C39300B4615E /* MMarvel.m in Sources */,
 				CB51FD232074CFBA009303B4 /* MCharacter.m in Sources */,
 				CB51FD1D2074CA52009303B4 /* BaseResponse.m in Sources */,
 				CB34CD032075D514007AB7E6 /* UIUtils.m in Sources */,

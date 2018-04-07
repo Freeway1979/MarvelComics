@@ -48,6 +48,28 @@ const static NSString * const MARVEL_API_GET_STORIES_BY_ID = @"/v1/public/charac
 {
     return [self urlByAPI:MARVEL_API_LIST_CHARS];
 }
++ (NSString *) urlOfGetComicsByCharacterID:(NSString *)characterId
+{
+    NSString *api = [MARVEL_API_GET_COMICS_BY_ID stringByReplacingOccurrencesOfString:@"{characterId}" withString:characterId];
+    return [self urlByAPI:api];
+}
++ (NSString *) urlOfGetEventsByCharacterID:(NSString *)characterId
+{
+    NSString *api = [MARVEL_API_GET_EVENTS_BY_ID stringByReplacingOccurrencesOfString:@"{characterId}" withString:characterId];
+    return [self urlByAPI:api];
+}
++ (NSString *) urlOfGetStoriesByCharacterID:(NSString *)characterId
+{
+    NSString *api = [MARVEL_API_GET_STORIES_BY_ID stringByReplacingOccurrencesOfString:@"{characterId}" withString:characterId];
+    return [self urlByAPI:api];
+}
++ (NSString *) urlOfGetSeriesByCharacterID:(NSString *)characterId
+{
+    NSString *api = [MARVEL_API_GET_SERIES_BY_ID stringByReplacingOccurrencesOfString:@"{characterId}" withString:characterId];
+    return [self urlByAPI:api];
+}
+
+
 + (NSString *) urlOfCharByID:(NSString *)ID
 {
     NSString *api = [MARVEL_API_GET_CHAR_BY_ID stringByReplacingOccurrencesOfString:@"{characterId}" withString:ID];

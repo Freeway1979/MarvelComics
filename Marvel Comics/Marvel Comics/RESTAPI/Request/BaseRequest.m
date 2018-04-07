@@ -10,6 +10,23 @@
 #import "NSObject+NSDictionary.h"
 
 @implementation BaseRequest
++ (instancetype)request
+{
+    return [BaseRequest new];
+}
+- (instancetype) int
+{
+    return [self initWithLimit:RecordNumberPerPage offset:0];
+}
+- (instancetype) initWithLimit:(NSUInteger)limit
+                        offset:(NSUInteger)offset
+{
+    if (self=[super init]) {
+        self.limit = limit;
+        self.offset = offset;
+    }
+    return self;
+}
 
 - (NSDictionary *)parameterDictionary
 {

@@ -7,7 +7,8 @@
 //
 
 #import "ImageSubtitleVM.h"
-#import "UIImage+Processing.h"
+
+#import "UIIMageView+LPImageCache.h"
 
 @implementation ImageSubtitleVM
 
@@ -34,26 +35,11 @@
     }
     //placeholder image
     cell.imageView.image = [UIImage imageNamed:@"DefaultHeaderIcon"];
-    __weak UITableViewCell *weakCell = cell;
-    //imageSize may be zero??
-    CGRect imageSize = weakCell.imageView.frame;
-    if (imageSize.size.height==0) {
-        CGFloat width = weakCell.contentView.frame.size.height;
-        imageSize = CGRectMake(0, 0, width, width);
-    }
-    [AsyncTaskManager executeAsyncTask:^{
-        //Retry when failed?
-        NSData *data = [NSData dataWithContentsOfURL:[NSURL URLWithString:fullUrl]];
-        UIImage *image = [UIImage imageWithData:data];
-        UIImage *subImage = [UIImage getSubImage:image
-                                         mCGRect:imageSize
-                                      centerBool:NO];
-        if (subImage) {
-            [AsyncTaskManager executeAsyncTaskOnMainThread:^{
-                [weakCell.imageView setImage:subImage];
-                [weakCell.imageView setNeedsLayout];
-            }];
-        }
-    }];
+    //
+    UIImageView *imageView = cell.imageView;
+    [imageView setImageWithURL:[NSURL URLWithString:fullUrl]
+              placeholderImage:[UIImage imageNamed:@"DefaultHeaderIcon"]
+                       options:0];
+    
 }
 @end

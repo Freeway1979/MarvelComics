@@ -27,18 +27,25 @@
     WS(ws);
     [self.dataController buildDataSource:nil
                                  success:^(id dataSource) {
-                                     ws.dataSource = dataSource;
-                                     [ws.tableView reloadData];
+                                     [ws onDataSourceChanged:dataSource];
                                  } failure:^(NSError * error) {
                                      
                                  }];
+    //Load server data
+    [AsyncTaskManager executeAsyncTask:^{
+        [ws.dataController loadServerData];
+    }];
 }
-
+- (void)onDataSourceChanged:(id)dataSource
+{
+    self.dataSource = dataSource;
+    [self.tableView reloadData];
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     
-    self.dataController = [[CharacterDetailDataController alloc] initWithCharacter:self.character];
+    self.dataController = [[CharacterDetailDataController alloc] initViewController:self character:self.character];
    
     [self setupViews];
     [self configureView];

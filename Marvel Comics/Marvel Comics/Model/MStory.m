@@ -11,11 +11,8 @@
 @implementation MStory
 - (instancetype) fromJSONObject:(id)jsonObject
 {
+    [super fromJSONObject:jsonObject];
     if (jsonObject) {
-        self.available = [[jsonObject objectForKey:@"available"] integerValue];
-        self.returned = [[jsonObject objectForKey:@"returned"] integerValue];
-        self.collectionURI = [jsonObject objectForKey:@"collectionURI"];
-        
         NSArray *arr = [jsonObject objectForKey:@"items"];
         NSMutableArray<MStorySummary *> *items = [NSMutableArray array];
         for (id obj in arr) {

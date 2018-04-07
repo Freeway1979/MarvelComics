@@ -10,13 +10,21 @@
 #import "DataControllerProtocol.h"
 #import "MCharacter.h"
 #import "CharacterVM.h"
+#import "DetailViewController.h"
 
 @interface CharacterDetailDataController : NSObject<DataControllerProtocol>
 
+@property (nonatomic,weak) DetailViewController *viewController;
+
 @property (nonatomic,strong) CharacterVM *character;
 
-- (instancetype)initWithCharacter:(CharacterVM *)character;
+@property (nonatomic,strong) NSArray<MComic *> *comicList;
+@property (nonatomic,strong) NSArray<MStory *> *storyList;
+@property (nonatomic,strong) NSArray<MEvent *> *eventList;
+@property (nonatomic,strong) NSArray<MSeries *> *seriesList;
 
+- (instancetype)initViewController:(UIViewController *)viewController
+                         character:(CharacterVM *)character;
 /**
  Load Data Source from anywhere (network,local database,and file cache,etc...)
  
@@ -27,5 +35,7 @@
 - (void)buildDataSource:(NSDictionary *)params
                 success:(void (^)(id))success
                 failure:(void (^)(NSError *))failure;
+
+- (void)loadServerData;
 
 @end

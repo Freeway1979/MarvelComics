@@ -9,13 +9,16 @@
 #import "CharacterDetailDataController.h"
 #import "ImageSubtitleVM.h"
 #import "GroupImageSubtitleVM.h"
+#import "MarvelNetProvider.h"
 
 @implementation CharacterDetailDataController
 
-- (instancetype)initWithCharacter:(CharacterVM *)character
+- (instancetype)initViewController:(DetailViewController *)viewController
+                         character:(CharacterVM *)character
 {
     if (self=[super init]) {
         self.character = character;
+        self.viewController = viewController;
     }
     return self;
 }
@@ -27,10 +30,10 @@
  @param success <#success description#>
  @param failure <#failure description#>
  */
-- (void)buildDataSource:(BaseRequest *)request
+- (void)buildDataSource:(NSDictionary *)params
                 success:(void (^)(id))success
-                failure:(void (^)(NSError *))failure {
-    
+                failure:(void (^)(NSError *))failure
+{
     NSMutableArray<GroupImageSubtitleVM *> *dataSource = [NSMutableArray array];
     //character
     NSMutableArray *arrayCharacter = [NSMutableArray array];
@@ -45,13 +48,12 @@
     ImageSubtitleVM *vm;
     //Comics
     NSMutableArray *arrayComics = [NSMutableArray array];
-    MComic *comics = character.comics;
-    NSUInteger itemCount = comics.items.count;
+    NSUInteger itemCount = self.comicList.count;
     for (int i=0; i<3 && i<itemCount; i++) {
-        MComicSummary *item = [comics.items objectAtIndex:i];
+        MMarvel *item = [self.comicList objectAtIndex:i];
         vm = [[ImageSubtitleVM alloc] initWithImageUrl:nil
-                                                 title:item.name
-                                              subtitle:item.name];
+                                                 title:item.title
+                                              subtitle:item.desc];
         [arrayComics addObject:vm];
     }
     group = [[GroupImageSubtitleVM alloc] initWithTitle:@"Comics"
@@ -61,29 +63,27 @@
     
     //Stories
     NSMutableArray *arrayStories = [NSMutableArray array];
-    MStory *stories = character.stories;
-    itemCount = stories.items.count;
+    itemCount = self.storyList.count;
     for (int i=0; i<3 && i<itemCount; i++) {
-        MStorySummary *item = [stories.items objectAtIndex:i];
+        MMarvel *item = [self.storyList objectAtIndex:i];
         vm = [[ImageSubtitleVM alloc] initWithImageUrl:nil
-                                                 title:item.name
-                                              subtitle:item.name];
+                                                 title:item.title
+                                              subtitle:item.desc];
         [arrayStories addObject:vm];
     }
     //group 3
     group = [[GroupImageSubtitleVM alloc] initWithTitle:@"Stories"
                                               cellArray:arrayStories];
     [dataSource addObject:group];
-
+    
     //Events
     NSMutableArray *arrayEvents = [NSMutableArray array];
-    MEvent *events = character.events;
-    itemCount = events.items.count;
+    itemCount = self.eventList.count;
     for (int i=0; i<3 && i<itemCount; i++) {
-        MEventSummary *item = [events.items objectAtIndex:i];
+        MMarvel *item = [self.eventList objectAtIndex:i];
         vm = [[ImageSubtitleVM alloc] initWithImageUrl:nil
-                                                 title:item.name
-                                              subtitle:item.name];
+                                                 title:item.title
+                                              subtitle:item.desc];
         [arrayEvents addObject:vm];
     }
     //group 4
@@ -92,13 +92,12 @@
     [dataSource addObject:group];
     //Series
     NSMutableArray *arraySeries = [NSMutableArray array];
-    MSeries *series = character.series;
-    itemCount = series.items.count;
+    itemCount = self.seriesList.count;
     for (int i=0; i<3 && i<itemCount; i++) {
-        MSeriesSummary *item = [series.items objectAtIndex:i];
+        MMarvel *item = [self.seriesList objectAtIndex:i];
         vm = [[ImageSubtitleVM alloc] initWithImageUrl:nil
-                                                 title:item.name
-                                              subtitle:item.name];
+                                                 title:item.title
+                                              subtitle:item.desc];
         [arraySeries addObject:vm];
     }
     //group 5
@@ -109,5 +108,54 @@
     if (success) {
         success(dataSource);
     }
+}
+- (void)loadServerData
+{
+    NSString *characterId = [NSString stringWithFormat:@"%ld", self.character.character.mid];
+    WS(ws);
+    MType mtype;
+    for (mtype = MTypeComic; mtype < MTypeSeries; mtype++) {
+        [MarvelNetProvider getMarvelServiceListOfCharacter:characterId mtype:mtype success:^(BaseResponse *response) {
+            id data = response.data.results;
+            [ws onServerDataChanged:data mtype:mtype];
+        } failure:^(NSError *error) {
+            
+        }];
+    }
+}
+- (void)onServerDataChanged:(NSArray *)data
+                      mtype:(MType)mtype
+{
+    switch (mtype) {
+        case MTypeComic:
+        {
+            self.comicList = data;
+        }
+            break;
+        case MTypeStory:
+        {
+            self.storyList = data;
+        }
+            break;
+        case MTypeEvent:
+        {
+            self.eventList = data;
+        }
+            break;
+        case MTypeSeries:
+        {
+            self.seriesList = data;
+        }
+        default:
+            break;
+    }
+    WS(ws);
+    [self buildDataSource:nil success:^(id data) {
+        [AsyncTaskManager executeAsyncTaskOnMainThread:^{
+            [ws.viewController onDataSourceChanged:data];
+        }];
+    } failure:^(NSError *eror) {
+        
+    }];
 }
 @end

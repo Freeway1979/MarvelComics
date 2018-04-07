@@ -17,5 +17,7 @@
 
 - (void)setDetailItem:(CharacterVM *)newDetailItem ;
 
+- (void)onDataSourceChanged:(id)dataSource;
+
 @end
 

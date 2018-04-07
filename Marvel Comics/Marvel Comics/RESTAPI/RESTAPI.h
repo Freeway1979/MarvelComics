@@ -13,4 +13,9 @@
 + (NSString *) urlOfListChars;
 + (NSString *) urlOfCharByID:(NSString *)ID;
 
++ (NSString *) urlOfGetComicsByCharacterID:(NSString *)characterId;
++ (NSString *) urlOfGetEventsByCharacterID:(NSString *)characterId;
++ (NSString *) urlOfGetStoriesByCharacterID:(NSString *)characterId;
++ (NSString *) urlOfGetSeriesByCharacterID:(NSString *)characterId;
+
 @end

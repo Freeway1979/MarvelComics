@@ -18,6 +18,11 @@
 
 @property (nonatomic,copy) NSString* orderBy;
 
++ (instancetype)request;
+
 - (NSDictionary *)parameterDictionary;
+
+- (instancetype) initWithLimit:(NSUInteger)limit
+                        offset:(NSUInteger)offset;
 
 @end
