@@ -48,14 +48,28 @@
     return [url absoluteString];
 }
 
+/**
+ background download ,no need call back
+
+ @param url <#url description#>
+ */
+- (void)backgroundDownloadImageWithURL:(NSURL *)url
+{
+    [self downloadImageWithURL:url
+                       options:LPImageOptionsBackgroundPriority
+                completedBlock:nil
+                   failedBlock:nil
+                   cancelBlock:nil];
+}
 - (void)downloadImageWithURL:(NSURL *)url
+                     options:(LPImageOptions)options
               completedBlock:(LPImageCompletionWithFinishedBlock)completedBlock
                  failedBlock:(LPImageDownloaderFailedBlock)failedBlock
                  cancelBlock:(NoParamsBlock)cancelBlock
 {
-    if (!completedBlock) {
-        return;
-    }
+//    if (!completedBlock) {
+//        return;
+//    }
     __block NSString *key = [self cacheKeyForURL:url];
     WS(ws);
     //Check memory cache
@@ -68,7 +82,9 @@
         }
         
         //Download from web
-        [self.imageDownloader downloadImageWithURL:url completedBlock:^(UIImage *image, NSData *data, NSError *error, BOOL finished) {
+        [self.imageDownloader downloadImageWithURL:url
+                                           options:options
+                                    completedBlock:^(UIImage *image, NSData *data, NSError *error, BOOL finished) {
             __strong typeof(self) strongSelf = ws;
             [strongSelf.imageCache storeImage:image
                                     imageData:data

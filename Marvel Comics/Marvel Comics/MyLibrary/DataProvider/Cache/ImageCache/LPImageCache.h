@@ -11,6 +11,12 @@
 
 #import "AutoPurgeCache.h"
 
+typedef NS_OPTIONS(NSUInteger, LPImageOptions) {
+    LPImageOptionsLowPriority = 1 << 0,
+    LPImageOptionsBackgroundPriority = 1 << 1,
+    LPImageOptionsDefaultPriority = 1 << 2
+};
+
 typedef NS_ENUM(NSInteger, LPImageCacheType) {
     /**
      * NOT TO BE CACHED
@@ -29,6 +35,11 @@ typedef NS_ENUM(NSInteger, LPImageCacheType) {
 typedef void(^LPImageQueryCompletedBlock)(UIImage *image, LPImageCacheType cacheType);
 
 typedef void(^LPImageCheckCacheCompletionBlock)(BOOL isInCache);
+
+typedef void (^LPImageDownloaderFailedBlock)(NSURLSessionTask *, NSError *);
+
+typedef void(^LPImageDownloaderCompletedBlock)(UIImage *image, NSData *data, NSError *error, BOOL finished);
+
 
 #define IMAGE_CACHE_SIZE (50*1024*1024)
 

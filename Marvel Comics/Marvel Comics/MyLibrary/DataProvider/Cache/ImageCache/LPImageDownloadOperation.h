@@ -9,10 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "LPWebImageOperation.h"
 #import "LPImageDownloader.h"
-
-typedef void (^LPImageDownloaderFailedBlock)(NSURLSessionTask *, NSError *);
-
-typedef void(^LPImageDownloaderCompletedBlock)(UIImage *image, NSData *data, NSError *error, BOOL finished);
+#import "LPImageCache.h"
 
 @interface LPImageDownloadOperation : NSOperation <LPWebImageOperation>
 

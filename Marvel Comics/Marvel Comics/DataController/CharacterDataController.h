@@ -11,6 +11,19 @@
 #import "MasterViewController.h"
 #import "CharacterListRequest.h"
 
+@interface DataResult:NSObject
+
+@property (nonatomic,copy) NSString *requestKey;
+
+@property (nonatomic,assign) BOOL isFinished;
+
+@property (nonatomic,assign) NSTimeInterval resultTime;
+
+@property (nonatomic,strong) NSArray<MCharacter *> *prefetchedData;
+
+@end
+
+
 @class MasterViewController;
 @interface CharacterDataController : NSObject<DataControllerProtocol>
 @property (nonatomic,weak) MasterViewController *vc;
@@ -23,6 +36,8 @@
 #pragma mark -pagination
 @property (nonatomic,assign) BOOL isPaginationMode;
 
+@property (nonatomic,strong) CharacterListRequest *request;
+
 - (instancetype)initViewController:(MasterViewController *)viewController;
 
 - (void) buildDataSource;
@@ -33,4 +48,9 @@
                             limit:(NSUInteger)limit
                            offset:(NSUInteger)offset
                           orderBy:(NSString *)orderBy;
+
+#pragma mark -prefetech data
+@property (nonatomic,strong) NSMutableDictionary<NSString *,DataResult *> *prefetechResultDic;
+
+
 @end

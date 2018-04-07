@@ -9,7 +9,16 @@
 #import "CharacterDataController.h"
 #import "MarvelNetProvider.h"
 #import "NSString+Format.h"
-#import "LoadingView.h"
+#import "ImageCacheManager.h"
+
+#pragma mark - DataResult
+@interface DataResult ()
+
+@end
+@implementation DataResult
+
+@end
+
 
 @implementation CharacterDataController
 - (instancetype)initViewController:(MasterViewController *)viewController {
@@ -18,6 +27,8 @@
         self.offset = 0;
         self.isPaginationMode = YES;
         self.vc=viewController;
+        
+        self.prefetechResultDic = [NSMutableDictionary dictionary];
     }
     return self;
 }
@@ -39,6 +50,42 @@
     request.orderBy = orderBy;
     return request;
 }
+- (void) prefetechData
+{
+    NSLog(@"prefetechData");
+    CharacterListRequest *request = [CharacterListRequest new];
+    request.nameStartsWith = self.request.nameStartsWith;
+    request.limit = self.request.limit;
+    request.offset = self.request.offset + RecordNumberPerPage;
+    WS(ws);
+    [self buildDataSource:request
+                  success:^(id data) {
+                      BaseResponseData *responseData = data;
+                      [ws onPrefetechDataSourceChanged:responseData.results
+                                               request:request];
+                  } failure:^(NSError *error) {
+                      NSLog(@"%@",error);
+                  
+    }];
+}
+- (void)onPrefetechDataSourceChanged:(NSArray<MCharacter *> *)data
+                             request:(CharacterListRequest *)request
+{
+    //save request information
+    DataResult *result = [self setRequestResult:request];
+    result.prefetchedData = data;
+    
+    //Start to download images
+    //And cached to memory and disk
+    for (MCharacter *ch in data) {
+        NSString *imageUrl = ch.thumbnail.fullThumbnailUrl;
+        if (imageUrl.length>0) {
+           ImageCacheManager *cacheManager = [ImageCacheManager shared];
+            [cacheManager backgroundDownloadImageWithURL:[NSURL URLWithString:imageUrl]];
+        }
+    }
+    
+}
 - (void) buildDataSource
 {
     //Avoid of mutilple requests in short time.
@@ -49,25 +96,33 @@
             return;
         }
     }
-    //[LoadingView show:self.vc.view];
-    [self.vc showLoadingAnimation];
-    isFetechingData = YES;
     CharacterListRequest *request = [self buildParameters:self.searchWord
                                                     limit:RecordNumberPerPage
                                                    offset:self.offset
                                                   orderBy:nil];
+    self.request = request;
+    DataResult *result = [self getRequestResult:request];
+    if (result && result.prefetchedData) {
+        [self onDataSourceChanged:result.prefetchedData];
+        return;
+    }
+    [self.vc showLoadingAnimation];
+    isFetechingData = YES;
     WS(ws);
     [self buildDataSource:request
-                                 success:^(id data) {
+                  success:^(id data) {
                                      BaseResponseData *responseData = data;
                                      [ws onDataSourceChanged:responseData.results];
                                      isFetechingData = NO;
-                                     //[LoadingView dismiss];
+                                     //save request information
+                                     [ws setRequestResult:request];
                                      [ws.vc dismissLoadingAnimation];
-                                 } failure:^(NSError *error) {
+                                 }
+                  failure:^(NSError *error) {
                                      NSLog(@"%@",error);
+                  
                                      isFetechingData = NO;
-                                     //[LoadingView dismiss];
+
                                      [ws.vc dismissLoadingAnimation];
                                  }];
 }
@@ -77,7 +132,7 @@
     if (self.isPaginationMode) {
         [list addObjectsFromArray:self.characterList];
     }
-    NSUInteger rowCount = list.count;
+    NSUInteger rowCount = list.count-1;
     NSMutableArray<CharacterVM *> *newData = [NSMutableArray arrayWithCapacity:[data count]];
     for (MCharacter *ch in data) {
         CharacterVM *vm = [[CharacterVM alloc] initWithCharacter:ch];
@@ -100,6 +155,13 @@
                        isPageEnabled:NO];
         
     }
+    
+    //Prefetech data
+    WS(ws);
+    [AsyncTaskManager executeAsyncTask:^{
+        [ws prefetechData];
+    } withPriority:DISPATCH_QUEUE_PRIORITY_BACKGROUND];
+    
 }
 
 - (void)insertRowsOfData:(NSArray<CharacterVM *> *)data
@@ -150,5 +212,33 @@
     }];
     
 }
+#pragma mark -data prefetech
+- (DataResult *)getRequestResult:(CharacterListRequest *)request
+{
+    NSString *key = [NSString stringWithFormat:@"%@_%ld_%ld",request.nameStartsWith,request.offset,request.limit];
+    DataResult *result = [self.prefetechResultDic objectForKey:key];
+    if (result) {
+//        NSTimeInterval nowInterval = [[NSDate date] timeIntervalSince1970];
+//        if ((nowInterval - result.resultTime) < 300*1000) {
+//            return result;
+//        }
+        return result;
+    }
+    return nil;
+}
+- (DataResult *)setRequestResult:(CharacterListRequest *)request
+{
+    NSString *key = [NSString stringWithFormat:@"%@_%ld_%ld",request.nameStartsWith,request.offset,request.limit];
+    DataResult *result = [self.prefetechResultDic objectForKey:key];
+    if (!result) {
+        result = [DataResult new];
+        result.requestKey = key;
+        result.isFinished = YES;
+        result.resultTime = [[NSDate date] timeIntervalSince1970];
+        [self.prefetechResultDic setObject:result forKey:key];
+    }
+    return result;
+}
+
 
 @end

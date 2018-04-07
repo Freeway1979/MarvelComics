@@ -8,12 +8,10 @@
 
 #import <Foundation/Foundation.h>
 #import "LPWebImageOperation.h"
+#import "ImageCacheManager.h"
 #import "LPImageDownloadOperation.h"
 
-typedef void(^LPImageDownloaderCompletedBlock)(UIImage *image, NSData *data, NSError *error, BOOL finished);
-
-typedef void (^LPImageDownloaderFailedBlock)(NSURLSessionTask *, NSError *);
-
+@class ImageCacheManager;
 @class LPImageDownloadOperation;
 
 @interface LPImageDownloader : NSObject
@@ -23,6 +21,7 @@ typedef void (^LPImageDownloaderFailedBlock)(NSURLSessionTask *, NSError *);
 @property (assign, nonatomic) NSTimeInterval downloadTimeout;
 
 - (LPImageDownloadOperation *)downloadImageWithURL:(NSURL *)url
+                                           options:(LPImageOptions)options
                                     completedBlock:(LPImageDownloaderCompletedBlock)completedBlock
                                        failedBlock:(LPImageDownloaderFailedBlock)failedBlock
                                        cancelBlock:(NoParamsBlock)cancelBlock;

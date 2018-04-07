@@ -42,6 +42,7 @@
         CGRect imageSize = self.frame;
         ImageCacheManager *cacheManager = [ImageCacheManager shared];
         [cacheManager downloadImageWithURL:url
+                                   options:LPImageOptionsDefaultPriority
                             completedBlock:^(UIImage *image, NSError *error, LPImageCacheType cacheType, BOOL finished, NSURL *imageURL) {
                                 UIImage *subImage = [UIImage getSubImage:image
                                                                  mCGRect:imageSize

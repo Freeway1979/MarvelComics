@@ -7,6 +7,7 @@
 //
 
 #import "LPImageDownloader.h"
+#import "ImageCacheManager.h"
 
 @interface LPImageDownloader () <NSURLSessionTaskDelegate, NSURLSessionDataDelegate>
 
@@ -39,6 +40,7 @@
 }
 
 - (LPImageDownloadOperation *)downloadImageWithURL:(NSURL *)url
+                                           options:(LPImageOptions)options
                                     completedBlock:(LPImageDownloaderCompletedBlock)completedBlock
                                        failedBlock:(LPImageDownloaderFailedBlock)failedBlock
                                        cancelBlock:(NoParamsBlock)cancelBlock
@@ -64,6 +66,16 @@
 //                                           cancelBlock:cancelBlock];
 //
 //    [self.downloadQueue addOperation:operation];
+  
+    NSInteger priority = DISPATCH_QUEUE_PRIORITY_DEFAULT;
+    if (options & LPImageOptionsLowPriority) {
+        priority = DISPATCH_QUEUE_PRIORITY_LOW;
+    }
+    else if (options & LPImageOptionsBackgroundPriority)
+    {
+        priority = DISPATCH_QUEUE_PRIORITY_BACKGROUND;
+    }
+                   
     [AsyncTaskManager executeAsyncTask:^{
         NSData *data = [NSData dataWithContentsOfURL:url];
         if (data) {
@@ -79,7 +91,7 @@
                 failedBlock(nil, error);
             }
         }
-    }];
+    } withPriority:priority];
     
     return nil;
 }

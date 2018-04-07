@@ -13,6 +13,7 @@
 typedef void(^LPImageCompletionWithFinishedBlock)(UIImage *image,NSError *error, LPImageCacheType cacheType, BOOL finished, NSURL *imageURL);
 
 
+@class LPImageDownloader;
 @interface ImageCacheManager : NSObject
 
 @property (strong, nonatomic, readonly) LPImageCache *imageCache;
@@ -22,7 +23,16 @@ typedef void(^LPImageCompletionWithFinishedBlock)(UIImage *image,NSError *error,
 
 
 - (NSString *)cacheKeyForURL:(NSURL *)url;
+
+/**
+ background download ,no need call back
+ 
+ @param url <#url description#>
+ */
+- (void)backgroundDownloadImageWithURL:(NSURL *)url;
+
 - (void)downloadImageWithURL:(NSURL *)url
+                     options:(LPImageOptions)options
               completedBlock:(LPImageCompletionWithFinishedBlock)completedBlock
                  failedBlock:(LPImageDownloaderFailedBlock)failedBlock
                  cancelBlock:(NoParamsBlock)cancelBlock;
