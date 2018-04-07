@@ -49,7 +49,8 @@
                 success:(void (^)(id))success
                 failure:(void (^)(NSError *))failure {
     
-    [MarvelNetProvider getCharacterList:request success:^(BaseResponse *response) {
+    [MarvelNetProvider getCharacterList:request
+                                success:^(BaseResponse *response) {
         if (success && response) {
             [AsyncTaskManager executeAsyncTaskOnMainThread:^{
                 success(response.data);

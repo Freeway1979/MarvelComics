@@ -11,4 +11,7 @@
 @interface NSString (URLEncode)
 - (NSString *) urlEncodedString;
 - (NSString *) urlDecodedString;
+
+//@property (nonatomic,copy) NSString *url;
+
 @end

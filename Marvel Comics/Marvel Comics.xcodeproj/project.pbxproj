@@ -289,6 +289,7 @@
 		CB34CCFA2075BEB7007AB7E6 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				CBF22C2B20784F3200DF1EF6 /* LPRefresh */,
 				CB34CCFC2075BED4007AB7E6 /* LoadingView.h */,
 				CB34CCFB2075BED4007AB7E6 /* LoadingView.m */,
 			);
@@ -634,6 +635,13 @@
 				CBF22C292078397500DF1EF6 /* CharacterListRequest.m */,
 			);
 			path = Request;
+			sourceTree = "<group>";
+		};
+		CBF22C2B20784F3200DF1EF6 /* LPRefresh */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = LPRefresh;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

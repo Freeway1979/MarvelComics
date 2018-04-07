@@ -11,6 +11,7 @@
 #import "NSString+MD5.h"
 #import "CharacterListRequest.h"
 #import <objc/runtime.h>
+#import "NSString+URLEncode.h"
 
 @interface Marvel_ComicsTests : XCTestCase
 

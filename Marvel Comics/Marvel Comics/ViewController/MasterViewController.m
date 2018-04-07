@@ -109,8 +109,10 @@
     [self.tableView registerNib:[UINib nibWithNibName:className bundle:mainBundle]
          forCellReuseIdentifier:className];
     
-    self.tableView.tableFooterView = [UIView new];
+    self.tableView.tableFooterView = [UIView new];    
+
 }
+
 - (void)dismissKeyboard
 {
     [self.searchBar becomeFirstResponder];
@@ -153,24 +155,58 @@
                                      [LoadingView dismiss];
                                  }];
 }
-- (void)onDataSourceChanged:(NSArray *)dataSource
+- (void)onDataSourceChanged:(NSArray *)data
 {
     NSMutableArray<CharacterVM *> *list = [NSMutableArray array];
     if (self.isPaginationMode) {
         [list addObjectsFromArray:self.characterList];
     }
-    for (MCharacter *ch in dataSource) {
+    NSUInteger rowCount = list.count;
+    NSMutableArray<CharacterVM *> *newData = [NSMutableArray arrayWithCapacity:[data count]];
+    for (MCharacter *ch in data) {
         CharacterVM *vm = [[CharacterVM alloc] initWithCharacter:ch];
-        [list addObject:vm];
+        [newData addObject:vm];
     }
+    [list addObjectsFromArray:newData];
     
     //Locked to avoid reading characterList to update tableView while writing.
-    @synchronized(self)
+    if (self.isPaginationMode) {
+        [self insertRowsOfData:newData
+                    dataSource:list
+                  lastRowCount:rowCount];
+    }
+    else
     {
-        self.characterList = list;
         [self.tableView reloadData];
+
     }
     [self dismissKeyboard];
+}
+
+- (void)insertRowsOfData:(NSArray<CharacterVM *> *)data
+              dataSource:(NSArray<CharacterVM *> *)dataSource
+            lastRowCount:(NSUInteger)lastRowCount
+{
+    //NSUInteger lastRowIndex = lastRowCount;
+    NSMutableArray *insertIndexPaths = [NSMutableArray arrayWithCapacity:[data count]];
+    for (int index = 0; index < [data count]; index++) {
+        CharacterVM *item = [data objectAtIndex:index];
+        NSUInteger row = [dataSource indexOfObject:item];
+        NSIndexPath *newPath =  [NSIndexPath indexPathForRow:row inSection:0];
+        NSLog(@"%@ %ld %ld",newPath,newPath.section,newPath.row);
+        [insertIndexPaths addObject:newPath];
+    }
+    NSIndexPath *lastIndexPath = [NSIndexPath indexPathForRow:lastRowCount+1 inSection:0];
+    @synchronized(self)
+    {
+        self.characterList = dataSource;
+        [self.tableView beginUpdates];
+        [self.tableView insertRowsAtIndexPaths:insertIndexPaths
+                              withRowAnimation:UITableViewRowAnimationFade];
+        [self.tableView endUpdates];
+        [self.tableView scrollToRowAtIndexPath:lastIndexPath
+                              atScrollPosition:UITableViewScrollPositionBottom animated:YES];
+    }
 }
 #pragma mark - Table View
 
@@ -196,6 +232,7 @@
     CharacterTableViewCell *theCell = [tableView dequeueReusableCellWithIdentifier:identifier] ;
     if (theCell == nil) {
         theCell = [[[NSBundle mainBundle]loadNibNamed:identifier owner:nil options:nil] firstObject];
+        theCell.selectionStyle = UITableViewCellSelectionStyleNone;
     }
     CharacterVM *vm = [self.characterList objectAtIndex:indexPath.row];
     [vm configureCell:theCell];
@@ -235,5 +272,27 @@
 - (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar
 {
     [self searchBarSearchButtonClicked:searchBar];
+}
+
+#pragma mark - UIScrollViewDelegate
+-(void)scrollViewDidScroll:(UIScrollView *)scrollView
+{
+    if (scrollView.contentOffset.y >= MAX(0, scrollView.contentSize.height - scrollView.frame.size.height) + 50)
+    {
+        NSLog(@"Release to load");
+        //self.footerLabel.text = "松开加载"
+    } else {
+        //NSLog(@"Pull to load");
+        //self.footerLabel.text = "上啦加载"
+    }
+}
+-(void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate
+{
+    if (scrollView.contentOffset.y >= MAX(0, scrollView.contentSize.height - scrollView.frame.size.height) + 50)
+    {
+        //
+        NSLog(@"loading data");
+        [self loadNextPageData];
+    }
 }
 @end
