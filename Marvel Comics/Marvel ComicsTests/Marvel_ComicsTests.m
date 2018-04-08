@@ -55,13 +55,13 @@
 
 - (void) testCharacterListRequest
 {
-    CharacterListRequest *request = [CharacterListRequest new];
-    request.limit = 20;
-    request.offset = 2;
-    request.nameStartsWith = @"Jack";
-    
-    NSDictionary *dic1 = [request dictionaryWithValuesForKeys:@[@"limit",@"offset",@"nameStartsWith"]];
-    NSDictionary *dic2 = [request parameterDictionary];
+//    CharacterListRequest *request = [CharacterListRequest new];
+//    request.limit = 20;
+//    request.offset = 2;
+//    request.nameStartsWith = @"Jack";
+//    
+//    NSDictionary *dic1 = [request dictionaryWithValuesForKeys:@[@"limit",@"offset",@"nameStartsWith"]];
+//    NSDictionary *dic2 = [request parameterDictionary];
     
 }
 - (void)testCustomObjectSerialization

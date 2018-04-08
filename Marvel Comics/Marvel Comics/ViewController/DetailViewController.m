@@ -11,6 +11,7 @@
 #import "GroupImageSubtitleVM.h"
 #import "ImageSubtitleVM.h"
 #import "CharacterTableViewCell.h"
+#import "DetailViewController+Transition.h"
 
 static NSString *Identifier = @"TableViewCell";
 @interface DetailViewController ()
@@ -41,6 +42,10 @@ static NSString *Identifier = @"TableViewCell";
 {
     self.dataSource = dataSource;
     [self.tableView reloadData];
+}
+- (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    self.navigationController.delegate = self;
 }
 - (void)viewDidLoad {
     [super viewDidLoad];

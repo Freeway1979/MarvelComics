@@ -10,11 +10,11 @@
 #import "MCharacter.h"
 #import "CharacterVM.h"
 #import "CharacterDataController.h"
-
+ 
 @class DetailViewController;
 @class CharacterDataController;
 
-@interface MasterViewController : UITableViewController<UISearchBarDelegate,UIScrollViewDelegate>
+@interface MasterViewController : UITableViewController<UISearchBarDelegate,UIScrollViewDelegate,UINavigationControllerDelegate>
 
 @property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
 
@@ -23,7 +23,6 @@
 @property (nonatomic,strong) CharacterDataController *dataController;
 
 @property (strong, nonatomic) NSArray<CharacterVM *> *characterList;
-
 
 #pragma mark - loading view
 - (void)showLoadingAnimation;

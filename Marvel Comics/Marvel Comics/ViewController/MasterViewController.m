@@ -12,12 +12,12 @@
 #import "UIActivityIndicatorView+Loading.h"
 #import "NotificationName.h"
 #import "MasterViewController+Search.h"
+#import "MasterViewController+Transition.h"
 
-@interface MasterViewController () <UISearchBarDelegate>
+@interface MasterViewController ()
 @end
 
 @implementation MasterViewController
-
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
@@ -37,6 +37,8 @@
 - (void)viewWillAppear:(BOOL)animated {
     self.clearsSelectionOnViewWillAppear = self.splitViewController.isCollapsed;
     [super viewWillAppear:animated];
+    //Push animation
+    self.navigationController.delegate = self;
 }
 
 

@@ -10,7 +10,7 @@
 #import "MCharacter.h"
 #import "CharacterVM.h"
 
-@interface DetailViewController : UIViewController<UITableViewDelegate,UITableViewDataSource>
+@interface DetailViewController : UIViewController<UITableViewDelegate,UITableViewDataSource,UINavigationControllerDelegate>
 
 @property (strong, nonatomic) CharacterVM *character;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
