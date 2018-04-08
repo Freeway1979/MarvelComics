@@ -132,11 +132,11 @@
             [self.tableView insertRowsAtIndexPaths:insertedIndexPaths
                                   withRowAnimation:UITableViewRowAnimationFade];
             [self.tableView endUpdates];
-//            if (scrollToIndexPath.row>0) {
-//                [self.tableView scrollToRowAtIndexPath:scrollToIndexPath
-//                                      atScrollPosition:UITableViewScrollPositionBottom
-//                                              animated:YES];
-//            }
+            if (scrollToIndexPath.row>0) {
+                [self.tableView scrollToRowAtIndexPath:scrollToIndexPath
+                                      atScrollPosition:UITableViewScrollPositionBottom
+                                              animated:YES];
+            }
         }
         else
         {
