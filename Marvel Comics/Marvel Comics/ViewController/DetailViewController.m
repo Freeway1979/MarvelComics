@@ -78,6 +78,14 @@ static NSString *Identifier = @"TableViewCell";
     self.tableView.dataSource = self;
     
     self.tableView.tableFooterView = [UIView new];
+    
+    //Fix table view gap to top
+    if (@available(iOS 11.0, *)) {
+        self.tableView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
+    }
+    else {
+        self.automaticallyAdjustsScrollViewInsets = NO;
+    }
 }
 
 #pragma mark - Managing the detail item

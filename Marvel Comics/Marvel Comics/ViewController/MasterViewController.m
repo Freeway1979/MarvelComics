@@ -13,8 +13,10 @@
 #import "NotificationName.h"
 #import "MasterViewController+Search.h"
 #import "MasterViewController+Transition.h"
+#import "LPTableFooterView.h"
 
 @interface MasterViewController ()
+@property (nonatomic, assign) BOOL isScrollBottom;
 @end
 
 @implementation MasterViewController
@@ -120,16 +122,21 @@
           scrollToIndexPath:(NSIndexPath *)scrollToIndexPath
               isPageEnabled:(BOOL)isPageEnabled
 {
+    self.tableView.tableFooterView = [UIView new];
     @synchronized(self)
     {
         self.characterList = dataSource;
         if (isPageEnabled) {
+            
             [self.tableView beginUpdates];
             [self.tableView insertRowsAtIndexPaths:insertedIndexPaths
                                   withRowAnimation:UITableViewRowAnimationFade];
             [self.tableView endUpdates];
-            [self.tableView scrollToRowAtIndexPath:scrollToIndexPath
-                                  atScrollPosition:UITableViewScrollPositionBottom animated:YES];
+//            if (scrollToIndexPath.row>0) {
+//                [self.tableView scrollToRowAtIndexPath:scrollToIndexPath
+//                                      atScrollPosition:UITableViewScrollPositionBottom
+//                                              animated:YES];
+//            }
         }
         else
         {
@@ -205,7 +212,17 @@
     // Return NO if you do not want the specified item to be editable.
     return NO;
 }
-
+//-(void) tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath{
+//
+//    if (self.isScrollBottom == NO) {
+//        [self.tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:self.characterList.count-1 inSection:0]
+//                              atScrollPosition:UITableViewScrollPositionNone
+//                                      animated:NO];
+//        if (indexPath.row == self.characterList.count-1) {
+//            self.isScrollBottom = YES;
+//        }
+//    }
+//}
 /*
 // Implementing the above methods to update the table view in response to individual changes may have performance implications if a large number of changes are made simultaneously. If this proves to be an issue, you can instead just implement controllerDidChangeContent: which notifies the delegate that all section and object changes have been processed. 
  
@@ -224,6 +241,7 @@
     if (scrollView.contentOffset.y >= MAX(0, scrollView.contentSize.height - scrollView.frame.size.height) + 30)
     {
         NSLog(@"Release to load");
+        
     } else {
         //NSLog(@"Pull to load");
     }
@@ -233,6 +251,7 @@
     if (scrollView.contentOffset.y >= MAX(0, scrollView.contentSize.height - scrollView.frame.size.height) + 30)
     {
         //
+        self.tableView.tableFooterView = [LPTableFooterView getFooterView];
         NSLog(@"loading data");
         [self loadNextPageData];
     }

@@ -132,7 +132,10 @@
     if (self.isPaginationMode) {
         [list addObjectsFromArray:self.characterList];
     }
-    NSUInteger rowCount = list.count-1;
+    NSInteger lastRow = list.count-1;
+    if (lastRow < 0) {
+        lastRow = 0;
+    }
     NSMutableArray<CharacterVM *> *newData = [NSMutableArray arrayWithCapacity:[data count]];
     for (MCharacter *ch in data) {
         CharacterVM *vm = [[CharacterVM alloc] initWithCharacter:ch];
@@ -144,7 +147,7 @@
     if (self.isPaginationMode) {
         [self insertRowsOfData:newData
                     dataSource:list
-                  lastRowCount:rowCount];
+                  lastRowCount:lastRow];
     }
     else
     {
