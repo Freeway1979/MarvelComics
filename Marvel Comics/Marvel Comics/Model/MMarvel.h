@@ -28,4 +28,7 @@ typedef NS_ENUM(NSInteger, MType)
 @property (nonatomic,copy) NSString *title;
 @property (nonatomic,copy) NSString *desc;
 
++ (NSString *)marvelTypeString:(MType)mtype;
+
+
 @end

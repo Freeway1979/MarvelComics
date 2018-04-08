@@ -8,8 +8,10 @@
 
 #import "GlobalConfig.h"
 #import "FavouriteDataProvider.h"
+#import "CharacterDataProvider.h"
 @interface GlobalConfig ()
 @property (nonatomic,strong) FavouriteDataProvider *favouriteDataProvider;
+@property (nonatomic,strong) CharacterDataProvider *characterDetailDataProvider;
 @end
 
 @implementation GlobalConfig
@@ -19,8 +21,11 @@
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         shared = [[GlobalConfig alloc] init];
+        
         shared.favouriteDataProvider = [FavouriteDataProvider shared];
         [shared.favouriteDataProvider loadFromLocalFile];
+        
+        shared.characterDetailDataProvider = [CharacterDataProvider shared];
     });
     return shared;
 }

@@ -9,6 +9,27 @@
 #import "MMarvel.h"
 
 @implementation MMarvel
++ (NSString *)marvelTypeString:(MType)mtype
+{
+    switch (mtype) {
+        case MTypeComic:
+            return @"Comics";
+            break;
+        case MTypeEvent:
+            return @"Events";
+            break;
+        case MTypeStory:
+            return @"Stories";
+            break;
+        case MTypeSeries:
+            return @"Series";
+            break;
+            
+        default:
+            break;
+    }
+    return nil;
+}
 - (instancetype) fromJSONObject:(id)jsonObject
 {
     if (jsonObject) {
