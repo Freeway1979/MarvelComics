@@ -24,6 +24,7 @@
 		CB35DA322075274A00440879 /* CharacterVM.m in Sources */ = {isa = PBXBuildFile; fileRef = CB35DA312075274A00440879 /* CharacterVM.m */; };
 		CB35DA36207528B000440879 /* CharacterTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CB35DA34207528B000440879 /* CharacterTableViewCell.m */; };
 		CB35DA37207528B000440879 /* CharacterTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CB35DA35207528B000440879 /* CharacterTableViewCell.xib */; };
+		CB3F74D22079B74B00092103 /* NSFileManager+LPExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = CB3F74D12079B74B00092103 /* NSFileManager+LPExtension.m */; };
 		CB51FC8720734A2F009303B4 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CB51FC8620734A2F009303B4 /* AppDelegate.m */; };
 		CB51FC8A20734A2F009303B4 /* Marvel_Comics.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CB51FC8820734A2F009303B4 /* Marvel_Comics.xcdatamodeld */; };
 		CB51FC8D20734A2F009303B4 /* MasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CB51FC8C20734A2F009303B4 /* MasterViewController.m */; };
@@ -132,6 +133,8 @@
 		CB35DA33207528B000440879 /* CharacterTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CharacterTableViewCell.h; sourceTree = "<group>"; };
 		CB35DA34207528B000440879 /* CharacterTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CharacterTableViewCell.m; sourceTree = "<group>"; };
 		CB35DA35207528B000440879 /* CharacterTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CharacterTableViewCell.xib; sourceTree = "<group>"; };
+		CB3F74D02079B74B00092103 /* NSFileManager+LPExtension.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSFileManager+LPExtension.h"; sourceTree = "<group>"; };
+		CB3F74D12079B74B00092103 /* NSFileManager+LPExtension.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSFileManager+LPExtension.m"; sourceTree = "<group>"; };
 		CB51FC8220734A2F009303B4 /* Marvel Comics.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Marvel Comics.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CB51FC8520734A2F009303B4 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		CB51FC8620734A2F009303B4 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -425,6 +428,8 @@
 				CBF22C1F207828E500DF1EF6 /* NSDictionary+URLEncodedString.m */,
 				CBF22C252078387F00DF1EF6 /* NSObject+NSDictionary.h */,
 				CBF22C262078387F00DF1EF6 /* NSObject+NSDictionary.m */,
+				CB3F74D02079B74B00092103 /* NSFileManager+LPExtension.h */,
+				CB3F74D12079B74B00092103 /* NSFileManager+LPExtension.m */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -849,6 +854,7 @@
 				CB51FD442074D7CD009303B4 /* MSeriesSummary.m in Sources */,
 				CB51FD3B2074D79C009303B4 /* MStorySummary.m in Sources */,
 				CB34CD0D2075EAB5007AB7E6 /* FlipPresentAnimationController.m in Sources */,
+				CB3F74D22079B74B00092103 /* NSFileManager+LPExtension.m in Sources */,
 				CB34CCFD2075BED4007AB7E6 /* LoadingView.m in Sources */,
 				CB51FD202074CB02009303B4 /* BaseResponseData.m in Sources */,
 				CB51FC8720734A2F009303B4 /* AppDelegate.m in Sources */,

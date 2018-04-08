@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface GroupImageSubtitleVM : NSObject
+@interface GroupImageSubtitleVM : NSObject <NSCoding>
 
 @property (nonatomic,copy) NSString *title;
 

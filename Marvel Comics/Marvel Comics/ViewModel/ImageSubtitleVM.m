@@ -42,4 +42,23 @@
                        options:0];
     
 }
+
+#pragma mark - NSCoding
+- (void)encodeWithCoder:(NSCoder *)aCoder
+{
+    [aCoder encodeObject:self.title forKey:@"title"];
+    [aCoder encodeObject:self.subtitle forKey:@"subtitle"];
+    [aCoder encodeObject:self.imageUrl forKey:@"imageUrl"];
+}
+- (nullable instancetype)initWithCoder:(NSCoder *)aDecoder
+{
+    self = [self init];
+    if (!self) {
+        return nil;
+    }
+    self.title = [aDecoder decodeObjectForKey:@"title"];
+    self.subtitle = [aDecoder decodeObjectForKey:@"subtitle"];
+    self.imageUrl = [aDecoder decodeObjectForKey:@"imageUrl"];
+    return self;
+}
 @end

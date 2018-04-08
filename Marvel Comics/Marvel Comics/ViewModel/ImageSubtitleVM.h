@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface ImageSubtitleVM : NSObject
+@interface ImageSubtitleVM : NSObject <NSCoding>
 
 @property (nonatomic,copy) NSString *imageUrl;
 

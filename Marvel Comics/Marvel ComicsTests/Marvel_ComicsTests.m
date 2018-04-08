@@ -12,6 +12,8 @@
 #import "CharacterListRequest.h"
 #import <objc/runtime.h>
 #import "NSString+URLEncode.h"
+#import "GroupImageSubtitleVM.h"
+#import "NSFileManager+LPExtension.h"
 
 @interface Marvel_ComicsTests : XCTestCase
 
@@ -61,6 +63,20 @@
     NSDictionary *dic1 = [request dictionaryWithValuesForKeys:@[@"limit",@"offset",@"nameStartsWith"]];
     NSDictionary *dic2 = [request parameterDictionary];
     
+}
+- (void)testCustomObjectSerialization
+{
+    GroupImageSubtitleVM *vm = [[GroupImageSubtitleVM alloc] initWithTitle:@"CustomObject" cellArray:nil];
+    //write in
+    NSDictionary *dic = @{@"CustomObject":vm};
+    NSData *data = [NSKeyedArchiver archivedDataWithRootObject:dic];
+    NSUserDefaults *userDetaults = [NSUserDefaults standardUserDefaults];
+    [userDetaults setObject:data forKey:@"CustomObject"];
+    [userDetaults synchronize];
+    //read out
+    NSData *CustomObject = [[NSUserDefaults standardUserDefaults] objectForKey:@"CustomObject"];
+    GroupImageSubtitleVM *model  = [NSKeyedUnarchiver unarchiveObjectWithData:CustomObject];
+    NSLog(@"%@",model);
 }
 - (void) testObjectProperties
 {

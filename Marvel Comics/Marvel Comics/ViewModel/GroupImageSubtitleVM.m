@@ -19,4 +19,21 @@
     }
     return self;
 }
+
+#pragma mark - NSCoding
+- (void)encodeWithCoder:(NSCoder *)aCoder
+{
+    [aCoder encodeObject:self.title forKey:@"title"];
+    [aCoder encodeObject:self.cellArray forKey:@"cellArray"];
+}
+- (nullable instancetype)initWithCoder:(NSCoder *)aDecoder
+{
+    self = [self init];
+    if (!self) {
+        return nil;
+    }
+    self.title = [aDecoder decodeObjectForKey:@"title"];
+    self.cellArray = [aDecoder decodeObjectForKey:@"cellArray"];
+    return self;
+}
 @end

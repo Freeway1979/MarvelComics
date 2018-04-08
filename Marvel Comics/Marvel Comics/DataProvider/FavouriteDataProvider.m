@@ -7,6 +7,8 @@
 //
 
 #import "FavouriteDataProvider.h"
+#import "NSFileManager+LPExtension.h"
+#define ARCHIEVED_FAVOURITE_CACHE_FILE_NAME @"favouriteDictionary.plist"
 @interface FavouriteDataProvider ()
 @property (nonatomic,strong) NSMutableDictionary<NSString *,NSNumber *> *favouriteDictionary;
 @end
@@ -45,18 +47,21 @@
     return NO;
 }
 
+#pragma mark - Serialization to local data
+- (NSString *)savedFilePath
+{
+    NSString *filePath = [[NSFileManager defaultManager] getDocumentDirectoryFileFullPathWithFileName:ARCHIEVED_FAVOURITE_CACHE_FILE_NAME];
+    return filePath;
+}
 - (void)saveToLocalFile
 {
-    NSArray *documents = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-    NSString *path = [documents[0] stringByAppendingPathComponent:@"favouriteDictionary.plist"];
-    [self.favouriteDictionary writeToFile:path atomically:YES];
+    NSString *filePath = [self savedFilePath];
+    [self.favouriteDictionary writeToFile:filePath atomically:YES];
 }
 
 - (void)loadFromLocalFile
 {
-    NSArray *documents = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-    NSString *path = [documents[0] stringByAppendingPathComponent:@"favouriteDictionary.plist"];
-   
-    self.favouriteDictionary = [NSMutableDictionary dictionaryWithDictionary:[NSDictionary dictionaryWithContentsOfFile:path]];
+    NSString *filePath = [self savedFilePath];
+    self.favouriteDictionary = [NSMutableDictionary dictionaryWithDictionary:[NSDictionary dictionaryWithContentsOfFile:filePath]];
 }
 @end
