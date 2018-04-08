@@ -15,7 +15,7 @@
 	-	DataController(Focus on View Model composition,read/write,data cache)
 	-	Model(Basic business model)
 	-	ViewModel(Model for View)
-	-	DataProvider(Network,Memory Cache,Local File)
+	-	DataProvider(Network,Memory Cache,Local File,Local DB)
 -	**JSON2Model**
 	-	JSONObject mapped to Customized Model(Conforms to a protocol),not inheritance.
 -	**Network API Framework**(Wrapper of REST API)
