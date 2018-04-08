@@ -176,7 +176,11 @@
         NSLog(@"%@ %ld %ld",newPath,newPath.section,newPath.row);
         [insertIndexPaths addObject:newPath];
     }
-    NSIndexPath *lastIndexPath = [NSIndexPath indexPathForRow:lastRowCount+1 inSection:0];
+    NSUInteger maxCount = dataSource.count;
+    if ((lastRowCount+1)<(maxCount-1)) {
+        lastRowCount += 1;
+    }
+    NSIndexPath *lastIndexPath = [NSIndexPath indexPathForRow:lastRowCount inSection:0];
     self.characterList = dataSource;
     [self.vc onDataSourceChanged:dataSource
               insertedIndexPaths:insertIndexPaths

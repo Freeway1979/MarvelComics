@@ -1044,6 +1044,7 @@
 				DEVELOPMENT_TEAM = 2A2G9N54ZA;
 				GCC_PREFIX_HEADER = "Marvel Comics/Supporting Files/Marvel.pch";
 				INFOPLIST_FILE = "Marvel Comics/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "cn.com.chaser.Marvel-Comics";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1059,6 +1060,7 @@
 				DEVELOPMENT_TEAM = 2A2G9N54ZA;
 				GCC_PREFIX_HEADER = "Marvel Comics/Supporting Files/Marvel.pch";
 				INFOPLIST_FILE = "Marvel Comics/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "cn.com.chaser.Marvel-Comics";
 				PRODUCT_NAME = "$(TARGET_NAME)";
