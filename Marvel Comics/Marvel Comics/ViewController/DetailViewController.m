@@ -12,6 +12,7 @@
 #import "ImageSubtitleVM.h"
 #import "CharacterTableViewCell.h"
 
+static NSString *Identifier = @"TableViewCell";
 @interface DetailViewController ()
 
 @property (strong,nonatomic) CharacterDetailDataController *dataController;
@@ -61,8 +62,9 @@
 - (void) setupViews
 {
     NSString *className = NSStringFromClass([CharacterTableViewCell class]);
-    //    [self.tableView registerClass:[CharacterTableViewCell class] forCellReuseIdentifier:NSStringFromClass([CharacterTableViewCell class])];
-    //
+    
+    [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:Identifier];
+    
     NSBundle *mainBundle = [NSBundle mainBundle];
     [self.tableView registerNib:[UINib nibWithNibName:className bundle:mainBundle]
          forCellReuseIdentifier:className];
@@ -123,7 +125,7 @@
         
         return cell;
     }
-    static NSString *Identifier = @"TableViewCell";
+    
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:Identifier];
     if(cell == nil)
     {

@@ -25,10 +25,12 @@
 }
 - (void)configureCell:(UITableViewCell *)cell
 {
-    
-    cell.textLabel.text = self.title;
-    cell.detailTextLabel.text = self.subtitle;
-
+    if (cell.textLabel) {
+        cell.textLabel.text = self.title;
+    }
+    if (cell.detailTextLabel) {
+        cell.detailTextLabel.text = self.subtitle;
+    }
     NSString *fullUrl = self.imageUrl;
     if (!fullUrl) {
         return;
