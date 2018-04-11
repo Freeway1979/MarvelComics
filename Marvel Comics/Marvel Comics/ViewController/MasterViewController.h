@@ -22,7 +22,7 @@
 
 @property (nonatomic,strong) CharacterDataController *dataController;
 
-@property (strong, nonatomic) NSArray<CharacterVM *> *characterList;
+@property (strong, nonatomic) NSMutableArray<CharacterVM *> *characterList;
 
 #pragma mark - loading view
 - (void)showLoadingAnimation;
@@ -30,8 +30,6 @@
 - (void)dismissLoadingAnimation;
 
 - (void)onDataSourceChanged:(NSArray<CharacterVM *> *)dataSource
-         insertedIndexPaths:(NSArray<NSIndexPath *> *)insertedIndexPaths
-          scrollToIndexPath:(NSIndexPath *)scrollToIndexPath
               isPageEnabled:(BOOL)isPageEnabled;
 
 - (void)updateDataParameters:(NSString *)searchWord

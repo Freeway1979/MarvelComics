@@ -118,30 +118,19 @@
 }
 #pragma mark - Data Controller
 - (void)onDataSourceChanged:(NSArray<CharacterVM *> *)dataSource
-         insertedIndexPaths:(NSArray<NSIndexPath *> *)insertedIndexPaths
-          scrollToIndexPath:(NSIndexPath *)scrollToIndexPath
               isPageEnabled:(BOOL)isPageEnabled
 {
     self.tableView.tableFooterView = [UIView new];
     @synchronized(self)
     {
-        self.characterList = dataSource;
-        if (isPageEnabled) {
-            
-            [self.tableView beginUpdates];
-            [self.tableView insertRowsAtIndexPaths:insertedIndexPaths
-                                  withRowAnimation:UITableViewRowAnimationFade];
-            [self.tableView endUpdates];
-            if (scrollToIndexPath.row>0) {
-                [self.tableView scrollToRowAtIndexPath:scrollToIndexPath
-                                      atScrollPosition:UITableViewScrollPositionBottom
-                                              animated:YES];
-            }
+        if (!self.characterList) {
+            self.characterList = [NSMutableArray array];
         }
-        else
-        {
-            [self.tableView reloadData];
+        if (!isPageEnabled) {
+            [self.characterList removeAllObjects];
         }
+        [self.characterList addObjectsFromArray:dataSource];
+        [self.tableView reloadData];
     }
     [self dismissKeyboard];
 }

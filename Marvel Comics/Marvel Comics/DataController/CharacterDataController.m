@@ -143,22 +143,8 @@
     }
     [list addObjectsFromArray:newData];
     
-    //Locked to avoid reading characterList to update tableView while writing.
-    if (self.isPaginationMode) {
-        [self insertRowsOfData:newData
-                    dataSource:list
-                  lastRowCount:lastRow];
-    }
-    else
-    {
-        self.characterList = list;
-        [self.vc onDataSourceChanged:list
-                  insertedIndexPaths:nil
-                   scrollToIndexPath:nil
-                       isPageEnabled:NO];
-        
-    }
-    
+    [self.vc onDataSourceChanged:newData isPageEnabled:self.isPaginationMode];
+
     //Prefetech data
     WS(ws);
     [AsyncTaskManager executeAsyncTask:^{
@@ -166,31 +152,6 @@
     } withPriority:DISPATCH_QUEUE_PRIORITY_BACKGROUND];
     
 }
-
-- (void)insertRowsOfData:(NSArray<CharacterVM *> *)data
-              dataSource:(NSArray<CharacterVM *> *)dataSource
-            lastRowCount:(NSUInteger)lastRowCount
-{
-    NSMutableArray *insertIndexPaths = [NSMutableArray arrayWithCapacity:[data count]];
-    for (int index = 0; index < [data count]; index++) {
-        CharacterVM *item = [data objectAtIndex:index];
-        NSUInteger row = [dataSource indexOfObject:item];
-        NSIndexPath *newPath =  [NSIndexPath indexPathForRow:row inSection:0];
-        NSLog(@"%@ %ld %ld",newPath,newPath.section,newPath.row);
-        [insertIndexPaths addObject:newPath];
-    }
-    NSUInteger maxCount = dataSource.count;
-    if ((lastRowCount+1)<(maxCount-1)) {
-        lastRowCount += 1;
-    }
-    NSIndexPath *lastIndexPath = [NSIndexPath indexPathForRow:lastRowCount inSection:0];
-    self.characterList = dataSource;
-    [self.vc onDataSourceChanged:dataSource
-              insertedIndexPaths:insertIndexPaths
-               scrollToIndexPath:lastIndexPath
-                   isPageEnabled:YES];
-}
-
 
 /**
  Load Data Source from anywhere (network,local database,and file cache,etc...)
